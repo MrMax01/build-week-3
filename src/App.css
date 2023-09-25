@@ -1,0 +1,11 @@
+.nomeUtenteSelezionabile:hover {
+  color: rgb(0, 98, 255);
+  text-decoration: underline;
+}
+.bottoneSelezionabile {
+  color: grey;
+}
+.bottoneSelezionabile:hover {
+  border: 3px solid;
+  border-color: black;
+}

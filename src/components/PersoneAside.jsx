@@ -17,12 +17,12 @@ const PersoneAside = ({ arrayPersone }) => {
                 />
               </div>
               <div className="w-100">
-                <h3 className="fs-5 my-1" role="button">
+                <h3 className="fs-5 my-1 nomeUtenteSelezionabile" role="button">
                   {arraySingolopersone.name} {arraySingolopersone.surname}
                 </h3>
                 <p className="my-1">{arraySingolopersone.title}</p>
                 <div>
-                  <button className="w-75 rounded-pill " style={{ color: "grey" }}>
+                  <button className="w-75 rounded-pill bottoneSelezionabile ">
                     <PersonPlus /> <span style={{ fontSize: "16px", fontWeight: "500" }}>Collegati</span>
                   </button>
                 </div>
