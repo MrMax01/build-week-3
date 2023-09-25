@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import MySideBar from "./components/sidebar";
+import MyAside from "./components/MyAside";
 
 function App() {
   return (
     <div className="App">
-      <MySideBar />
+      <MyAside />
     </div>
   );
 }

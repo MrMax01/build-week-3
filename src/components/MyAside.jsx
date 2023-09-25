@@ -1,5 +1,12 @@
+import { useEffect } from "react";
 import { Pencil, PersonPlus } from "react-bootstrap-icons";
+import { useDispatch } from "react-redux";
+import { getPersoneAside } from "../redux/action";
 const MySideBar = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getPersoneAside());
+  }, []);
   return (
     <aside style={{ width: "300px" }} className="bg-secondary">
       <div className="rounded  p-4 mb-2">
