@@ -1,12 +1,18 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import HeroProfile from "./Components/HeroProfile";
-import Information from "./Components/Information";
+import HeroProfile from "./components/HeroProfile";
+import Information from "./components/Information";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <HeroProfile />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HeroProfile />} />
+        </Routes>
+      </BrowserRouter>
+
       <Information />
     </div>
   );

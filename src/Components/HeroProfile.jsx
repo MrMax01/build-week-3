@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-
 import { Link } from "react-router-dom";
 import { fetchProfile } from "../redux/actions";
 
@@ -9,9 +8,9 @@ function HeroProfile() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile.content);
   useEffect(() => {
-    console.log(profile);
     dispatch(fetchProfile());
-    console.log(profile);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     // HERO SECTION
@@ -43,22 +42,22 @@ function HeroProfile() {
                   <p className="mb-0">{profile.title}</p>
                   <p className="mb-0 mt-3 text-secondary">
                     {profile.area} &middot;{" "}
-                    <Link to="#" style={{ textDecoration: "none", fontWeight: "bold" }}>
+                    <Link to="/" style={{ textDecoration: "none", fontWeight: "bold" }}>
                       Informazioni di contatto
                     </Link>{" "}
                   </p>
-                  <Link to="#" className="mb-0 mt-1" style={{ textDecoration: "none", fontWeight: "bold" }}>
+                  <Link to="/" className="mb-0 mt-1" style={{ textDecoration: "none", fontWeight: "bold" }}>
                     245 collegamenti
                   </Link>
                 </Row>
                 <Row className="mt-2 btn-hero">
-                  <Link className="bg-primary text-light border rounded-5" to="#">
+                  <Link className="bg-primary text-light border rounded-5" to="/">
                     Disponibile per
                   </Link>
-                  <Link className="bg-light border rounded-5 text-primary btnQuiz" to="#">
+                  <Link className="bg-light border rounded-5 text-primary btnQuiz" to="/">
                     Aggiungi sezione del profilo
                   </Link>
-                  <Link className="bg-light border rounded-5 text-secondary" to="#">
+                  <Link className="bg-light border rounded-5 text-secondary" to="/">
                     Altro
                   </Link>
                 </Row>
@@ -79,7 +78,7 @@ function HeroProfile() {
                   </p>
                 </div>
                 <p className="mb-0">Ruoli di Sviluppatore Full Stack</p>
-                <Link style={{ fontWeight: "bold", textDecoration: "none" }} to="#">
+                <Link style={{ fontWeight: "bold", textDecoration: "none" }} to="/">
                   Mostra dettagli
                 </Link>
               </Col>
@@ -98,7 +97,7 @@ function HeroProfile() {
                     <span style={{ fontWeight: "lighter" }}>e attrai candidati qualificati</span>.
                   </p>
                 </div>
-                <Link style={{ fontWeight: "bold", textDecoration: "none" }} to="#">
+                <Link style={{ fontWeight: "bold", textDecoration: "none" }} to="/">
                   Inizia
                 </Link>
               </Col>
