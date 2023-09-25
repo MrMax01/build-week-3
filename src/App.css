@@ -1,0 +1,24 @@
+/* LinkedinFooter */
+.nav-link:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+#nav-dropdown {
+  padding: 0 !important;
+  color: gray !important;
+}
+
+#nav-dropdown:hover {
+  color: blue !important;
+  text-decoration: underline !important;
+}
+
+.dropdown-item2:hover {
+  background-color: blue;
+  color: white !important;
+}
+
+.language:hover {
+  border: 2px solid black !important;
+}
