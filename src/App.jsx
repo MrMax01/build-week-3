@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
-import MyNavbar from "./component/MyNavbar";
+import MyNavbar from "./components/MyNavbar";
 import MyAside from "./components/MyAside";
 import LinkedInFooter from "./components/LinkedinFooter";
 import HeroProfile from "./components/HeroProfile";
@@ -18,9 +18,8 @@ function App() {
           <Route path="/" element={<HeroProfile />} />
         </Routes>
         <LinkedInFooter />
+        <Information />
       </BrowserRouter>
-
-      <Information />
     </div>
   );
 }
