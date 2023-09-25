@@ -1,0 +1,55 @@
+.profileCover {
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
+  height: 300px;
+  width: 100%;
+  background-image: url("https://media.licdn.com/dms/image/D4D3DAQETvA-0PrQ0tg/image-scale_191_1128/0/1678879822720?e=1696240800&v=beta&t=3D2RqYcwcI469Hkn_HVlkbonYCLPR_t7BtytWof07mA");
+  background-size: cover;
+  background-position: center;
+}
+
+.profilePicWrap {
+  position: relative;
+  width: 60px;
+  max-width: 60px;
+  height: 60px;
+  max-height: 60px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profilePic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.linkprofilePicWrap {
+  position: relative;
+  top: -100px;
+  left: 20px;
+  width: 180px;
+  height: 180px;
+  border: 5px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.linkprofilePic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dataPost {
+  font-size: smaller;
+}
