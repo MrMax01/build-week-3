@@ -1,4 +1,16 @@
-import { Button, Col, Container, Form, InputGroup, Nav, NavDropdown, Navbar, Offcanvas, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  InputGroup,
+  Nav,
+  NavDropdown,
+  Navbar,
+  Offcanvas,
+  Row,
+} from "react-bootstrap";
 import logo from "../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -99,20 +111,29 @@ const MyNavbar = () => {
                 </div>
               </NavDropdown>
 
-              <Button variant="navOffcanvas" onClick={() => handleShow()}>
-                <div>
-                  <div>
-                    <i className="bi bi-grid-3x3-gap-fill"></i>
-                  </div>
-                  <div>For Business</div>
-                </div>
+              <Button variant="light" className="border border-0 bg-transparent" onClick={() => handleShow()}>
+                <i className="bi bi-grid-3x3-gap-fill fs-4"></i>{" "}
+                <p className="fs-6 fw-light m-0">
+                  per le aziende <i className="bi bi-caret-down-fill"></i>
+                </p>
               </Button>
 
               <Offcanvas show={show} onHide={() => handleClose()} end>
                 <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>For Business</Offcanvas.Title>
+                  <Offcanvas.Title>Per le aziende</Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body></Offcanvas.Body>
+                <Offcanvas.Body>
+                  <Card>
+                    <Card.Header as="h5">Scopri altri prodotti su Linkedin</Card.Header>
+                    <Card.Body>
+                      <Card.Text className="d-flex">
+                        <div className="box-icon-canvas p-1 border text-primary d-flex justify-content-center align-items-center">
+                          <i className="bi bi-card-heading "></i>
+                        </div>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Offcanvas.Body>
               </Offcanvas>
               <Nav.Link className="premium d-flex align-items-center">Try Premium For Free</Nav.Link>
             </Nav>
