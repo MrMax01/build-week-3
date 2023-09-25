@@ -48,6 +48,7 @@ body {
   background-image: url("https://media.licdn.com/dms/image/D4D3DAQETvA-0PrQ0tg/image-scale_191_1128/0/1678879822720?e=1696240800&v=beta&t=3D2RqYcwcI469Hkn_HVlkbonYCLPR_t7BtytWof07mA");
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 
 .profilePicWrap {
@@ -94,4 +95,9 @@ body {
 
 .dataPost {
   font-size: smaller;
+}
+
+.mt-sidebar {
+  margin-top: 110px;
+  margin-inline: 15px;
 }

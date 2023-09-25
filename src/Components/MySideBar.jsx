@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Pencil } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { getPersoneAside } from "../redux/action";
+import { getPersoneAside } from "../redux/actions";
 import PersoneAside from "./PersoneAside";
 const MySideBar = () => {
   let arrayPersoneAside = useSelector((state) => state.aside.content);
@@ -14,7 +14,7 @@ const MySideBar = () => {
   }, []);
 
   return (
-    <aside style={{ width: "300px" }}>
+    <aside style={{ width: "300px" }} className="bg-white border rounded mt-sidebar">
       <div className="rounded  p-4 mb-2">
         <div className="relative d-flex justify-content-between">
           <div className="fw-bold">

@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import profileSelectedReducer from "../reducer/profile";
-import myProfileReducer from "../reducer/myProfile";
-import loadingReducer from "../reducer/loadingReducer";
-import errorReducer from "../reducer/errorReducer";
+import profileSelectedReducer from "../reducers/profile";
+import myProfileReducer from "../reducers/myProfile";
+import loadingReducer from "../reducers/loadingReducer";
+import errorReducer from "../reducers/errorReducer";
 import personeAsideReducer from "../reducers/aside";
+
 const rootReducer = combineReducers({
   profile: profileSelectedReducer,
   myProfile: myProfileReducer,

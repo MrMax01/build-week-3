@@ -10,7 +10,7 @@ const headers = {
       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
   },
 };
-export const fetchProfile = (userId) => {
+export const fetchProfile = (userId = "me") => {
   return (dispatch, getState) =>
     fetch(baseEndPoint + userId, headers)
       .then((res) => {
@@ -41,6 +41,30 @@ export const fetchMyProfile = () => {
       console.log(error);
       dispatch({ type: LOADING, payload: false });
       dispatch({ type: ERROR, payload: true });
+    }
+  };
+};
+
+export const GET_PERSONE_ASIDE = "GET_PERSONE_ASIDE";
+export const getPersoneAside = () => {
+  return async (dispatch) => {
+    try {
+      let resp = await fetch("https://striveschool-api.herokuapp.com/api/profile/", {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExMzg0ODM3NTJhODAwMTQ1Njg3NjIiLCJpYXQiOjE2OTU2MjczMzcsImV4cCI6MTY5NjgzNjkzN30.R0yTN0r5Ct2hhB51PttVXFrZTwy8g1PkYbzMH0FGtuA",
+        },
+      });
+      if (resp.ok) {
+        let fetchedPersoneAside = await resp.json();
+        dispatch({ type: GET_PERSONE_ASIDE, payload: fetchedPersoneAside });
+      } else {
+        console.log("error");
+        alert("Errore nel reperimento dei dati personeAside ");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 };

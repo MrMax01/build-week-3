@@ -1,4 +1,4 @@
-import { GET_PERSONE_ASIDE } from "../action";
+import { GET_PERSONE_ASIDE } from "../actions";
 
 const initialState = {
   content: null,
