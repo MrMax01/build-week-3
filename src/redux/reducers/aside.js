@@ -7,6 +7,7 @@ const personeAsideReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PERSONE_ASIDE:
       return {
+        ...state,
         content: action.payload,
       };
     default:

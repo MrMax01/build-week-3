@@ -1,14 +1,20 @@
-import { useEffect } from "react";
-import { Pencil, PersonPlus } from "react-bootstrap-icons";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { Pencil } from "react-bootstrap-icons";
+import { useDispatch, useSelector } from "react-redux";
 import { getPersoneAside } from "../redux/action";
+import PersoneAside from "./PersoneAside";
 const MySideBar = () => {
+  let arrayPersoneAside = useSelector((state) => state.aside.content);
+  const [showMore, setShowMore] = useState(false);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPersoneAside());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
-    <aside style={{ width: "300px" }} className="bg-secondary">
+    <aside style={{ width: "300px" }}>
       <div className="rounded  p-4 mb-2">
         <div className="relative d-flex justify-content-between">
           <div className="fw-bold">
@@ -16,7 +22,7 @@ const MySideBar = () => {
             <p>Italiano</p>
           </div>
           <div>
-            <Pencil />
+            <Pencil role="button" />
           </div>
         </div>
         <hr className="mt-4 mb-4" />
@@ -24,7 +30,7 @@ const MySideBar = () => {
           <div className="d-flex justify-content-between">
             <span className="fw-bold"> Public profile & Url</span>
             <div>
-              <Pencil></Pencil>
+              <Pencil role="button" />
             </div>
           </div>
           <p className="pt-1 opacity-75" style={{ fontSize: "13px" }}>
@@ -41,30 +47,41 @@ const MySideBar = () => {
             </h2>
             <p>Dalla tua scuola o università</p>
           </div>
-          <div className="d-flex justify-content-evenly">
-            <div>
-              <img src="#" alt="logo-u" />
-            </div>
-            <div>
-              <h3 className="fs-5 m-0">Mario Rossi</h3>
-              <p className="m-0">Junior Full-Stack Developer</p>
-              <div>
-                <button className="w-75 rounded-pill " style={{ color: "grey" }}>
-                  <PersonPlus /> <span style={{ fontSize: "16px", fontWeight: "500" }}>Collegati</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <hr />
-          <p className="fw-bold text-center  opacity-75 pt-2">Visualizza Altro</p>
+
+          {arrayPersoneAside && arrayPersoneAside.length > 0 && showMore === true && (
+            <PersoneAside arrayPersone={arrayPersoneAside.slice(0, 10)} />
+          )}
+          {arrayPersoneAside && arrayPersoneAside.length > 0 && showMore === false && (
+            <PersoneAside arrayPersone={arrayPersoneAside.slice(0, 5)} />
+          )}
+
+          <button className="fw-bold text-center  opacity-75 pt-2 border-0 w-100 bg-transparent">
+            {showMore === false ? (
+              <p
+                onClick={() => {
+                  setShowMore(true);
+                }}
+              >
+                Visualizza Altro
+              </p>
+            ) : (
+              <p
+                onClick={() => {
+                  setShowMore(false);
+                }}
+              >
+                Visualizza Meno
+              </p>
+            )}
+          </button>
         </div>
       </section>
-      <section>
+      {/* <section>
         <div className="pt-4 px-4">
           <div>
             <div className="d-inline">
-              <img src="#" alt="logolinkedln" />
-            </div>
+              <img src="#" alt="ln" />
+            </div> 
             <span className="">LEARNING</span>
           </div>
           <h3 style={{ fontSize: "16px", fontWeight: "400" }}>
@@ -73,7 +90,7 @@ const MySideBar = () => {
           <ul className="list-unstyled">
             <li className="d-flex">
               <div>
-                <img src="#" alt="video-learn" />
+                <img src="#" alt="" />
               </div>
               <div>
                 <p>essere un manager che le persone non vorranno</p>
@@ -81,7 +98,7 @@ const MySideBar = () => {
             </li>
           </ul>
         </div>
-      </section>
+      </section> */}
     </aside>
   );
 };
