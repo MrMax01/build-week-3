@@ -1,4 +1,4 @@
-import { Button, Container, Form, InputGroup, Nav, NavDropdown, Navbar, Offcanvas } from "react-bootstrap";
+import { Button, Col, Container, Form, InputGroup, Nav, NavDropdown, Navbar, Offcanvas, Row } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -20,7 +20,7 @@ const MyNavbar = () => {
     return <>LOADING...</>;
   } else {
     return (
-      <Container fluid>
+      <Container fluid className="navbarContainer">
         <Navbar expand="md" variant="light" className="py-0">
           <Navbar.Brand>
             <img alt="logo" src={logo} height={41} />
@@ -81,19 +81,40 @@ const MyNavbar = () => {
                 id="dropdown"
                 className="dropNav profileDrop"
               >
-                <NavDropdown.Item>Thing</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item>Some</NavDropdown.Item>
+                <div className="dropdownSizesControl">
+                  <NavDropdown.Item>
+                    <Row>
+                      <Col xs={3}>
+                        <img alt="me" src={myProfile.image} width={24} height={24} className="rounded-circle" />
+                      </Col>
+                      <Col>
+                        <Row>
+                          {myProfile.surname} {myProfile.name}
+                        </Row>
+                      </Col>
+                    </Row>
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item>Some</NavDropdown.Item>
+                </div>
               </NavDropdown>
 
-              <Button onClick={() => handleShow()}> For Business </Button>
+              <Button variant="navOffcanvas" onClick={() => handleShow()}>
+                <div>
+                  <div>
+                    <i className="bi bi-grid-3x3-gap-fill"></i>
+                  </div>
+                  <div>For Business</div>
+                </div>
+              </Button>
 
-              <Offcanvas show={show} onHide={() => handleClose()}>
+              <Offcanvas show={show} onHide={() => handleClose()} end>
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title>For Business</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body></Offcanvas.Body>
               </Offcanvas>
+              <Nav.Link className="premium d-flex align-items-center">Try Premium For Free</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
