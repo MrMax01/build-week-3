@@ -6,7 +6,6 @@ import LinkedInFooter from "./components/LinkedinFooter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./components/Main";
 import HomePage from "./components/HomePage";
-import HeroProfile from "./components/HeroProfile";
 
 function App() {
   return (

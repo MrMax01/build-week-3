@@ -116,9 +116,9 @@ const MyNavbar = () => {
 
               <Button variant="light" className="border border-0 bg-transparent" onClick={() => handleShow()}>
                 <i className="bi bi-grid-3x3-gap-fill fs-4"></i>{" "}
-                <p className="fs-6 fw-light m-0">
-                  per le aziende <i className="bi bi-caret-down-fill"></i>
-                </p>
+                <span className="fs-6 fw-light m-0 d-block">
+                  per le aziende <i className="bi bi-caret-down-fill fs-7"></i>
+                </span>
               </Button>
 
               <Offcanvas className="mt-canvas" show={show} onHide={() => handleClose()} placement="end" name="end">
