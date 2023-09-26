@@ -9,13 +9,15 @@ const PersoneAside = ({ arrayPersone }) => {
           <div key={arraySingolopersone._id}>
             <div className="d-flex py-3">
               <div style={{ paddingRight: "20px" }}>
-                <img
-                  role="button"
-                  className="rounded-circle"
-                  src={arraySingolopersone.image}
-                  style={{ width: "50px" }}
-                  alt="logo-u"
-                />
+                <Link to={`/profile/${arraySingolopersone._id}`}>
+                  <img
+                    role="button"
+                    className="rounded-circle"
+                    src={arraySingolopersone.image}
+                    style={{ width: "50px" }}
+                    alt="logo-u"
+                  />
+                </Link>
               </div>
               <div className="w-100">
                 <Link to={`/profile/${arraySingolopersone._id}`}>
