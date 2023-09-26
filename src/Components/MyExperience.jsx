@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { Card, Container, Dropdown, ListGroup } from "react-bootstrap";
+import { Button, Card, Container, Dropdown, ListGroup } from "react-bootstrap";
 import { getExperience } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { Pencil } from "react-bootstrap-icons";
+import { Pencil, Trash } from "react-bootstrap-icons";
+import ModalComponent from "./ModalComponent";
 
 const MyExperience = () => {
   const idProfile = useSelector((state) => state.profile.content._id);
@@ -66,8 +67,14 @@ const MyExperience = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item onClick={() => handleElimina(experience._id)}>Elimina</Dropdown.Item>
-                      <Dropdown.Item>Modifica</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleElimina(experience._id)}>
+                        <Button className="bg-danger">
+                          <Trash />
+                        </Button>
+                      </Dropdown.Item>
+                      <Dropdown.Item>
+                        <ModalComponent experience={experience} />
+                      </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
