@@ -5,6 +5,8 @@ import MyNavbar from "./components/MyNavbar";
 import LinkedInFooter from "./components/LinkedinFooter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./components/Main";
+import HomePage from "./components/HomePage";
+import HeroProfile from "./components/HeroProfile";
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
       <BrowserRouter>
         <MyNavbar />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="" element={<HomePage />} />
+          <Route path="/me" element={<Main />} />
+          <Route path="/profile/:profileId" element={<Main />} />
         </Routes>
         <LinkedInFooter />
       </BrowserRouter>

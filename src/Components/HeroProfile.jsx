@@ -13,13 +13,15 @@ function HeroProfile() {
   const profile = useSelector((state) => state.profile.content);
   const { profileId } = useParams();
   useEffect(() => {
+    console.log(profileId);
     if (profileId) {
+      console.log(profileId);
       dispatch(fetchProfile(profileId));
     } else {
       dispatch(fetchProfile());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [profileId]);
   return (
     // HERO SECTION
 

@@ -15,6 +15,7 @@ import logo from "../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchMyProfile } from "../redux/actions";
+import { Link } from "react-router-dom";
 
 const MyNavbar = () => {
   const [show, setShow] = useState(false);
@@ -101,7 +102,9 @@ const MyNavbar = () => {
                       </Col>
                       <Col>
                         <Row>
-                          {myProfile.surname} {myProfile.name}
+                          <Link to="/me">
+                            {myProfile.surname} {myProfile.name}
+                          </Link>
                         </Row>
                       </Col>
                     </Row>
