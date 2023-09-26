@@ -26,6 +26,7 @@ const MyNavbar = () => {
 
   useEffect(() => {
     dispatch(fetchMyProfile());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading === true) {
