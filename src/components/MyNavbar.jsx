@@ -15,7 +15,7 @@ import logo from "../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchMyProfile } from "../redux/actions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyNavbar = () => {
   const [show, setShow] = useState(false);
@@ -24,7 +24,7 @@ const MyNavbar = () => {
   const dispatch = useDispatch();
   const myProfile = useSelector((state) => state.myProfile.myContent);
   let loading = useSelector((state) => state.loading.loading);
-
+  const navigation = useNavigate();
   useEffect(() => {
     dispatch(fetchMyProfile());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -120,7 +120,14 @@ const MyNavbar = () => {
                     </Row>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
-                    <Button variant="outline-primary" className="w-100" height={20}>
+                    <Button
+                      variant="outline-primary"
+                      className="w-100"
+                      height={20}
+                      onClick={() => {
+                        navigation("/me");
+                      }}
+                    >
                       View Profile
                     </Button>
                   </NavDropdown.Item>

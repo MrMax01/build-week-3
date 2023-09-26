@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Col, Container, Image, Modal, Row } from "react-bootstrap";
+import { useEffect, useRef, useState } from "react";
+import { Col, Container, Form, Image, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { fetchProfile } from "../redux/actions";
@@ -30,6 +30,24 @@ function HeroProfile() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profileId]);
+
+  const inputRef = useRef(null);
+  const handleClick = () => {
+    inputRef.current.click();
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault(event);
+    const fileObj = event.target;
+
+    const formData = new FormData(fileObj);
+    if (!formData) {
+      return;
+    }
+    console.log(formData);
+
+    event.target.value = null;
+  };
+
   return (
     // HERO SECTION
 
@@ -66,9 +84,15 @@ function HeroProfile() {
                             <Modal.Title>Add Photo</Modal.Title>
                           </Modal.Header>
                           <Modal.Body className="d-flex align-content-center">
-                            {" "}
                             <Image src={profile.image} alt="profile-picture" roundedCircle className="modalProfile" />
                           </Modal.Body>
+                          <Modal.Footer>
+                            <Form onSubmit={handleSubmit}>
+                              <Form.Control type="file" className="d-none" ref={inputRef} />
+                              <Button onClick={handleClick}>Add Photo</Button>
+                              <Button type="submit">Submit</Button>
+                            </Form>
+                          </Modal.Footer>
                         </Modal>
                         {/* IMMAGINE PROFILO */}
                       </div>

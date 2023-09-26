@@ -100,6 +100,9 @@ code {
 .addPhoto .modal-content .modalProfile {
   width: 45%;
 }
+.addPhoto .modal-content .modal-body {
+  justify-content: center;
+}
 
 @media screen and (max-width: 1150px) {
   .navbar {
