@@ -20,6 +20,25 @@ a {
 .bottoneSelezionabile {
   color: grey;
 }
+
+.btnQuiz:hover {
+  border: 2px solid #0b5ed7 !important;
+  background-color: #0b5dd729 !important;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
+.btnQuiz2:hover {
+  border: 2px solid black !important;
+  background-color: rgba(0, 0, 0, 0.098) !important;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
 .bottoneSelezionabile:hover {
   border: 3px solid;
   border-color: black;
@@ -48,6 +67,9 @@ a {
 .language:hover {
   border: 2px solid black !important;
 }
+
+/* */
+
 .profileCover {
   border-top-right-radius: 9px;
   border-top-left-radius: 9px;
@@ -56,6 +78,7 @@ a {
   background-image: url("https://media.licdn.com/dms/image/D4D3DAQETvA-0PrQ0tg/image-scale_191_1128/0/1678879822720?e=1696240800&v=beta&t=3D2RqYcwcI469Hkn_HVlkbonYCLPR_t7BtytWof07mA");
   background-size: cover;
   background-position: center;
+  object-position: center;
   overflow: hidden;
 }
 

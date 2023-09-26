@@ -9,6 +9,7 @@ import ActivityHero from "./ActivityHero";
 import { Button } from "react-bootstrap";
 import MyExperience from "./MyExperience";
 import { Pencil, X } from "react-bootstrap-icons";
+import ModalComponent from "./ModalComponent";
 
 function HeroProfile() {
   const dispatch = useDispatch();
@@ -50,6 +51,8 @@ function HeroProfile() {
                       <h2 className="mb-0 mt-0">
                         {profile.name} {profile.surname}
                       </h2>
+
+                      <ModalComponent />
                     </div>
                     <p className="mb-0">{profile.title}</p>
                     <p className="mb-0 mt-3 text-secondary">
@@ -63,15 +66,35 @@ function HeroProfile() {
                     </Link>
                   </Row>
                   <Row className="mt-2 btn-hero">
-                    <Link className=" bg-primary text-light border rounded-5" to="/">
-                      <Button variant="primary">Disponibile per</Button>
-                    </Link>
-                    <Link className=" button bg-light border rounded-5 text-primary btnQuiz" to="/">
-                      Aggiungi sezione del profilo
-                    </Link>
-                    <Link className=" button bg-light border rounded-5 text-secondary" to="/">
-                      Altro
-                    </Link>
+                    <Col sm={12} md={12}>
+                      <Link to="/">
+                        <Button
+                          variant="primary"
+                          className="text-light border rounded-5 border border-primary"
+                          style={{ fontWeight: "500" }}
+                        >
+                          Disponibile per
+                        </Button>
+                      </Link>
+
+                      <Link to="/">
+                        <Button
+                          className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz"
+                          style={{ fontWeight: "500" }}
+                        >
+                          Aggiungi sezione del profilo
+                        </Button>
+                      </Link>
+
+                      <Link to="/">
+                        <Button
+                          className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2"
+                          style={{ fontWeight: "500" }}
+                        >
+                          Altro
+                        </Button>
+                      </Link>
+                    </Col>
                   </Row>
                 </Row>
               </Row>
