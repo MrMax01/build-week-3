@@ -8,6 +8,7 @@ import Information from "./Information";
 import ActivityHero from "./ActivityHero";
 import { Button } from "react-bootstrap";
 import MyExperience from "./MyExperience";
+import { Pencil, X } from "react-bootstrap-icons";
 
 function HeroProfile() {
   const dispatch = useDispatch();
@@ -42,21 +43,20 @@ function HeroProfile() {
                       </div>
                     </Col>
                   </Row>
-                </Container>{" "}
+                </Container>
                 <Row className="px-3 mx-0">
                   <Row className="ancorHero" style={{ fontSize: "15px" }}>
                     <div className="d-flex justify-content-between">
                       <h2 className="mb-0 mt-0">
                         {profile.name} {profile.surname}
                       </h2>
-                      {/* MODALE */}
                     </div>
                     <p className="mb-0">{profile.title}</p>
                     <p className="mb-0 mt-3 text-secondary">
-                      {profile.area} &middot;{" "}
+                      {profile.area} &middot;
                       <Link to="/" style={{ textDecoration: "none", fontWeight: "bold" }}>
                         Informazioni di contatto
-                      </Link>{" "}
+                      </Link>
                     </p>
                     <Link to="/" className="mb-0 mt-1" style={{ textDecoration: "none", fontWeight: "bold" }}>
                       245 collegamenti
@@ -88,6 +88,9 @@ function HeroProfile() {
                     <p className="mb-0" style={{ fontWeight: "bold" }}>
                       Disponibile a lavorare
                     </p>
+                    <div>
+                      <Pencil role="button" />
+                    </div>
                   </div>
                   <p className="mb-0">Ruoli di Sviluppatore Full Stack</p>
                   <Link style={{ fontWeight: "bold", textDecoration: "none" }} to="/">
@@ -105,9 +108,10 @@ function HeroProfile() {
                 >
                   <div className="d-flex justify-content-between">
                     <p style={{ fontWeight: "bold" }}>
-                      Fai sapere che stai facendo selezione{" "}
+                      Fai sapere che stai facendo selezione
                       <span style={{ fontWeight: "lighter" }}>e attrai candidati qualificati</span>.
                     </p>
+                    <X />
                   </div>
                   <Link style={{ fontWeight: "bold", textDecoration: "none" }} to="/">
                     Inizia
