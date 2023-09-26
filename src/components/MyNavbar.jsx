@@ -95,13 +95,13 @@ const MyNavbar = () => {
               <NavDropdown
                 title={
                   <>
-                    <img alt="me" src={myProfile.image} width={40} height={40} className="rounded-circle" />
+                    <img alt="me" src={myProfile.image} width={30} height={30} className="rounded-circle" />
                     <br />
                     <span>Me</span>
                   </>
                 }
                 id="dropdown"
-                className="dropNav profileDrop"
+                className="dropNav profileDrop py-2"
               >
                 <div className="dropdownSizesControl">
                   <NavDropdown.Item>
