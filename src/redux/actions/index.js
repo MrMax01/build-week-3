@@ -4,6 +4,7 @@ export const LOADING = "LOADING";
 export const ERROR = "ERROR";
 
 const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/";
+
 const headers = {
   headers: {
     Authorization:
