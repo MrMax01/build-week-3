@@ -118,19 +118,66 @@ const MyNavbar = () => {
                 </p>
               </Button>
 
-              <Offcanvas show={show} onHide={() => handleClose()} end>
+              <Offcanvas className="mt-canvas" show={show} onHide={() => handleClose()} placement="end" name="end">
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title>Per le aziende</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <Card>
+                  <Card className="mb-3">
                     <Card.Header as="h5">Scopri altri prodotti su Linkedin</Card.Header>
                     <Card.Body>
                       <Card.Text className="d-flex">
-                        <div className="box-icon-canvas p-1 border text-primary d-flex justify-content-center align-items-center">
-                          <i className="bi bi-card-heading "></i>
-                        </div>
+                        <Row xs={4}>
+                          <Col>
+                            <div className="box-icon-canvas p-1 border text-primary d-flex justify-content-center align-items-center mb-1">
+                              <i className="bi bi-card-heading fs-3 "></i>
+                            </div>
+                            <p className="fw-light  fs-7 ">Pubblica un'offerta di lavoro</p>
+                          </Col>
+                          <Col>
+                            <div className="box-icon-canvas p-1 border text-primary d-flex justify-content-center align-items-center mb-1">
+                              <i className="bi bi-play-btn-fill fs-3"></i>
+                            </div>
+                            <p className="fw-light  fs-7 ">Learning</p>
+                          </Col>
+                          <Col>
+                            <div className="box-icon-canvas p-1 border text-primary d-flex justify-content-center align-items-center mb-1">
+                              <i className="bi bi-clipboard-data fs-3"></i>
+                            </div>
+                            <p className="fw-light  fs-7 ">Talent Insight</p>
+                          </Col>
+                          <Col>
+                            <div className="box-icon-canvas p-1 border text-primary d-flex justify-content-center align-items-center mb-1">
+                              <i className="bi bi-bullseye fs-3"></i>
+                            </div>
+                            <p className="fw-light  fs-7 ">Pubblicizza</p>
+                          </Col>
+                          <Col>
+                            <div className="box-icon-canvas p-1 border text-primary d-flex justify-content-center align-items-center mb-1">
+                              <i className="bi bi-compass fs-3"></i>
+                            </div>
+                            <p className="fw-light  fs-7 ">Trova nuovi clienti</p>
+                          </Col>
+                          <Col>
+                            <div className="box-icon-canvas p-1 border text-primary d-flex justify-content-center align-items-center mb-1">
+                              <i className="bi bi-people-fill fs-3"></i>
+                            </div>
+                            <p className="fw-light  fs-7 ">Gruppi</p>
+                          </Col>
+                          <Col>
+                            <div className="box-icon-canvas p-1 border text-primary d-flex justify-content-center align-items-center mb-1">
+                              <i className="bi bi-info-circle-fill fs-3"></i>
+                            </div>
+                            <p className="fw-light  fs-7 ">Marketplace dei servizi</p>
+                          </Col>
+                        </Row>
                       </Card.Text>
+                    </Card.Body>
+                  </Card>
+                  <Card>
+                    <Card.Header as="h5">Scopri altro per il business</Card.Header>
+                    <Card.Body>
+                      <Card.Text className="d-flex"></Card.Text>
                     </Card.Body>
                   </Card>
                 </Offcanvas.Body>

@@ -2,8 +2,12 @@ body {
   background-color: #f4f2ee;
 }
 .box-icon-canvas {
-  width: 30px;
-  height: 25px;
+  width: 50px;
+  height: 40px;
+}
+.box-icon-canvas:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
 }
 .nomeUtenteSelezionabile:hover {
   color: rgb(0, 98, 255);
@@ -100,4 +104,13 @@ body {
 .mt-sidebar {
   margin-top: 110px;
   margin-inline: 15px;
+}
+.mt-canvas {
+  margin-top: 95px;
+}
+.tight-letter-spacing {
+  letter-spacing: -0.03em; /* Modifica il valore a tuo piacimento */
+}
+.fs-7 {
+  font-size: 0.7rem;
 }
