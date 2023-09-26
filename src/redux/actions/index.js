@@ -3,13 +3,12 @@ export const MY_PROFILE = "MY_PROFILE";
 export const LOADING = "LOADING";
 export const ERROR = "ERROR";
 
-// const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/";
-const baseEndPoint = "https://barbie-linkedin.cyclic.cloud/api/profile/";
+const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/";
+
 const headers = {
   headers: {
     Authorization:
       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
-    team: "team-2",
   },
 };
 export const fetchProfile = (userId = "me") => {

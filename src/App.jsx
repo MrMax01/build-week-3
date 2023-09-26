@@ -5,6 +5,7 @@ import MyNavbar from "./components/MyNavbar";
 import LinkedInFooter from "./components/LinkedinFooter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./components/Main";
+import Default from "./components/Default";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <MyNavbar />
 
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Default />} />
+          <Route path="/me" element={<Main />} />
         </Routes>
         <LinkedInFooter />
       </BrowserRouter>

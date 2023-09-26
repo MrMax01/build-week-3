@@ -33,7 +33,7 @@ const MyNavbar = () => {
   } else {
     return (
       <Container fluid className="navbarContainer">
-        <Navbar expand="md" variant="light" className="py-0">
+        <Navbar expand="sm" variant="light" className="py-0">
           <Navbar.Brand>
             <img alt="logo" src={logo} height={41} />
           </Navbar.Brand>
@@ -93,8 +93,8 @@ const MyNavbar = () => {
               <NavDropdown
                 title={
                   <>
-                    <img alt="me" src={myProfile.image} width={24} height={24} className="rounded-circle" />
-
+                    <img alt="me" src={myProfile.image} width={40} height={40} className="rounded-circle" />
+                    <br />
                     <span>Me</span>
                   </>
                 }
@@ -135,14 +135,14 @@ const MyNavbar = () => {
                 </div>
               </NavDropdown>
 
-              <Button variant="light" className="border border-0 bg-transparent" onClick={() => handleShow()}>
+              <Button variant="navOffcanvas" className="border border-0" onClick={() => handleShow()}>
                 <i className="bi bi-grid-3x3-gap-fill fs-4"></i>{" "}
                 <p className="fs-6 fw-light m-0">
                   per le aziende <i className="bi bi-caret-down-fill"></i>
                 </p>
               </Button>
 
-              <Offcanvas show={show} onHide={() => handleClose()} end>
+              <Offcanvas show={show} onHide={() => handleClose()} placement="end">
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title>Per le aziende</Offcanvas.Title>
                 </Offcanvas.Header>
@@ -159,7 +159,7 @@ const MyNavbar = () => {
                   </Card>
                 </Offcanvas.Body>
               </Offcanvas>
-              <Nav.Link className="premium d-flex align-items-center">Try Premium For Free</Nav.Link>
+              <Nav.Link className="premium align-items-center">Try Premium For Free</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

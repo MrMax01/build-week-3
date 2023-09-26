@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Col, Container, Image, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchProfile } from "../redux/actions";
@@ -9,8 +9,13 @@ import ActivityHero from "./ActivityHero";
 import { Button } from "react-bootstrap";
 
 function HeroProfile() {
+  const [show, setShow] = useState();
+
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile.content);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   useEffect(() => {
     dispatch(fetchProfile());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,7 +34,32 @@ function HeroProfile() {
                     <Col className="p-0 m-0">
                       <Col className="profileCover">{/* IMMAGINE COPERTINA */}</Col>
                       <div className="linkprofilePicWrap">
-                        <Image src={profile.image} alt="profile-picture" roundedCircle className="linkprofilePic" />
+                        <Image
+                          src={profile.image}
+                          alt="profile-picture"
+                          roundedCircle
+                          className="linkprofilePic"
+                          onClick={() => {
+                            handleShow();
+                          }}
+                        />
+                        <Modal
+                          show={show}
+                          onHide={() => {
+                            handleClose();
+                          }}
+                          backdrop="static"
+                          keyboard={true}
+                          className="addPhoto"
+                        >
+                          <Modal.Header closeButton>
+                            <Modal.Title>Add Photo</Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body className="d-flex align-content-center">
+                            {" "}
+                            <Image src={profile.image} alt="profile-picture" roundedCircle className="modalProfile" />
+                          </Modal.Body>
+                        </Modal>
                         {/* IMMAGINE PROFILO */}
                       </div>
                     </Col>
