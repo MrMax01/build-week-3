@@ -52,7 +52,8 @@ const MyExperience = () => {
                     <p className="m-0 fw-bold fs-6">{experience.role.toUpperCase()} </p>
                     <p className="m-0 fw-light fs-6">Company:{experience.company}</p>
                     <p className="m-0 fw-light fs-6">
-                      Start: {experience.startDate.slice(0, 10)}-{experience.endDate.slice(0, 10)}
+                      Start: {typeof experience.startDate === "string" && experience.startDate.slice(0, 10)} End:{" "}
+                      {experience.endDate && experience.endDate.slice(0, 10)}
                     </p>
                     <p className="m-0 fw-light fs-6"> {experience.description}</p>
                     <p className="m-0 fw-light fs-6"> Area:{experience.area}</p>
