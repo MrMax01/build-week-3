@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -7,10 +7,17 @@ import Resources from "./Resources";
 import Information from "./Information";
 import ActivityHero from "./ActivityHero";
 import { Button } from "react-bootstrap";
+import { Pencil } from "react-bootstrap-icons";
+import ModalComponent from "./ModalComponent";
 
 function HeroProfile() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile.content);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
   useEffect(() => {
     dispatch(fetchProfile());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,13 +42,14 @@ function HeroProfile() {
                     </Col>
                   </Row>
                 </Container>{" "}
-                <Row className="px-3 mx-0">
+                <Row className="px-3 mx-0 w-100">
                   <Row className="ancorHero" style={{ fontSize: "15px" }}>
                     <div className="d-flex justify-content-between">
                       <h2 className="mb-0 mt-0">
                         {profile.name} {profile.surname}
                       </h2>
-                      {/* MODALE */}
+
+                      <ModalComponent />
                     </div>
                     <p className="mb-0">{profile.title}</p>
                     <p className="mb-0 mt-3 text-secondary">
@@ -55,15 +63,35 @@ function HeroProfile() {
                     </Link>
                   </Row>
                   <Row className="mt-2 btn-hero">
-                    <Link className=" bg-primary text-light border rounded-5" to="/">
-                      <Button variant="primary">Disponibile per</Button>
-                    </Link>
-                    <Link className=" button bg-light border rounded-5 text-primary btnQuiz" to="/">
-                      Aggiungi sezione del profilo
-                    </Link>
-                    <Link className=" button bg-light border rounded-5 text-secondary" to="/">
-                      Altro
-                    </Link>
+                    <Col sm={12} md={12}>
+                      <Link to="/">
+                        <Button
+                          variant="primary"
+                          className="text-light border rounded-5 border border-primary"
+                          style={{ fontWeight: "500" }}
+                        >
+                          Disponibile per
+                        </Button>
+                      </Link>
+
+                      <Link to="/">
+                        <Button
+                          className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz"
+                          style={{ fontWeight: "500" }}
+                        >
+                          Aggiungi sezione del profilo
+                        </Button>
+                      </Link>
+
+                      <Link to="/">
+                        <Button
+                          className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2"
+                          style={{ fontWeight: "500" }}
+                        >
+                          Altro
+                        </Button>
+                      </Link>
+                    </Col>
                   </Row>
                 </Row>
               </Row>
