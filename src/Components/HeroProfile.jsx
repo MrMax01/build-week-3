@@ -7,6 +7,7 @@ import Resources from "./Resources";
 import Information from "./Information";
 import ActivityHero from "./ActivityHero";
 import { Button } from "react-bootstrap";
+import MyExperience from "./MyExperience";
 
 function HeroProfile() {
   const dispatch = useDispatch();
@@ -109,6 +110,7 @@ function HeroProfile() {
             </Container>
           </Container>
           <Resources />
+          <MyExperience />
           <ActivityHero />
           <Information />
         </>

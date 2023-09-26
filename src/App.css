@@ -5,6 +5,10 @@ body {
   width: 30px;
   height: 25px;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
 .nomeUtenteSelezionabile:hover {
   color: rgb(0, 98, 255);
   text-decoration: underline;
@@ -100,4 +104,10 @@ body {
 .mt-sidebar {
   margin-top: 110px;
   margin-inline: 15px;
+}
+
+@media screen and (max-width: 750px) {
+  #sidebar {
+    display: none;
+  }
 }
