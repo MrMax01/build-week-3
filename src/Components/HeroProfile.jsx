@@ -1,25 +1,35 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Image, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchProfile } from "../redux/actions";
 import Resources from "./Resources";
 import Information from "./Information";
 import ActivityHero from "./ActivityHero";
 import { Button } from "react-bootstrap";
+import MyExperience from "./MyExperience";
+import { Pencil, X } from "react-bootstrap-icons";
+import ModalComponent from "./ModalComponent";
 
 function HeroProfile() {
   const [show, setShow] = useState();
 
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile.content);
+  const { profileId } = useParams();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    dispatch(fetchProfile());
+    console.log(profileId);
+    if (profileId) {
+      console.log(profileId);
+      dispatch(fetchProfile(profileId));
+    } else {
+      dispatch(fetchProfile());
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [profileId]);
   return (
     // HERO SECTION
 
@@ -64,36 +74,57 @@ function HeroProfile() {
                       </div>
                     </Col>
                   </Row>
-                </Container>{" "}
+                </Container>
                 <Row className="px-3 mx-0">
                   <Row className="ancorHero" style={{ fontSize: "15px" }}>
                     <div className="d-flex justify-content-between">
                       <h2 className="mb-0 mt-0">
                         {profile.name} {profile.surname}
                       </h2>
-                      {/* MODALE */}
+
+                      <ModalComponent />
                     </div>
                     <p className="mb-0">{profile.title}</p>
                     <p className="mb-0 mt-3 text-secondary">
-                      {profile.area} &middot;{" "}
+                      {profile.area} &middot;
                       <Link to="/" style={{ textDecoration: "none", fontWeight: "bold" }}>
                         Informazioni di contatto
-                      </Link>{" "}
+                      </Link>
                     </p>
                     <Link to="/" className="mb-0 mt-1" style={{ textDecoration: "none", fontWeight: "bold" }}>
                       245 collegamenti
                     </Link>
                   </Row>
                   <Row className="mt-2 btn-hero">
-                    <Link className=" bg-primary text-light border rounded-5" to="/">
-                      <Button variant="primary">Disponibile per</Button>
-                    </Link>
-                    <Link className=" button bg-light border rounded-5 text-primary btnQuiz" to="/">
-                      Aggiungi sezione del profilo
-                    </Link>
-                    <Link className=" button bg-light border rounded-5 text-secondary" to="/">
-                      Altro
-                    </Link>
+                    <Col sm={12} md={12}>
+                      <Link to="/">
+                        <Button
+                          variant="primary"
+                          className="text-light border rounded-5 border border-primary"
+                          style={{ fontWeight: "500" }}
+                        >
+                          Disponibile per
+                        </Button>
+                      </Link>
+
+                      <Link to="/">
+                        <Button
+                          className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz"
+                          style={{ fontWeight: "500" }}
+                        >
+                          Aggiungi sezione del profilo
+                        </Button>
+                      </Link>
+
+                      <Link to="/">
+                        <Button
+                          className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2"
+                          style={{ fontWeight: "500" }}
+                        >
+                          Altro
+                        </Button>
+                      </Link>
+                    </Col>
                   </Row>
                 </Row>
               </Row>
@@ -110,6 +141,9 @@ function HeroProfile() {
                     <p className="mb-0" style={{ fontWeight: "bold" }}>
                       Disponibile a lavorare
                     </p>
+                    <div>
+                      <Pencil role="button" />
+                    </div>
                   </div>
                   <p className="mb-0">Ruoli di Sviluppatore Full Stack</p>
                   <Link style={{ fontWeight: "bold", textDecoration: "none" }} to="/">
@@ -127,9 +161,10 @@ function HeroProfile() {
                 >
                   <div className="d-flex justify-content-between">
                     <p style={{ fontWeight: "bold" }}>
-                      Fai sapere che stai facendo selezione{" "}
+                      Fai sapere che stai facendo selezione
                       <span style={{ fontWeight: "lighter" }}>e attrai candidati qualificati</span>.
                     </p>
+                    <X />
                   </div>
                   <Link style={{ fontWeight: "bold", textDecoration: "none" }} to="/">
                     Inizia
@@ -139,6 +174,7 @@ function HeroProfile() {
             </Container>
           </Container>
           <Resources />
+          <MyExperience />
           <ActivityHero />
           <Information />
         </>

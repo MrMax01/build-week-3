@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
+
 import MyNavbar from "./components/MyNavbar";
 import LinkedInFooter from "./components/LinkedinFooter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -14,8 +15,9 @@ function App() {
         <MyNavbar />
 
         <Routes>
-          <Route path="/" element={<Default />} />
+          <Route path="" element={<Default />} />
           <Route path="/me" element={<Main />} />
+          <Route path="/profile/:profileId" element={<Main />} />
         </Routes>
         <LinkedInFooter />
       </BrowserRouter>

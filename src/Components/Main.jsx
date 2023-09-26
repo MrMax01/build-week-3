@@ -9,7 +9,7 @@ const Main = () => {
         <Col md={8}>
           <HeroProfile />
         </Col>
-        <Col md={4}>
+        <Col id="sidebar" md={4}>
           <MySideBar />
         </Col>
       </Row>

@@ -2,8 +2,16 @@ body {
   background-color: #f4f2ee;
 }
 .box-icon-canvas {
-  width: 30px;
-  height: 25px;
+  width: 50px;
+  height: 40px;
+}
+.box-icon-canvas:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 .nomeUtenteSelezionabile:hover {
   color: rgb(0, 98, 255);
@@ -12,6 +20,25 @@ body {
 .bottoneSelezionabile {
   color: grey;
 }
+
+.btnQuiz:hover {
+  border: 2px solid #0b5ed7 !important;
+  background-color: #0b5dd729 !important;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
+.btnQuiz2:hover {
+  border: 2px solid black !important;
+  background-color: rgba(0, 0, 0, 0.098) !important;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
 .bottoneSelezionabile:hover {
   border: 3px solid;
   border-color: black;
@@ -40,6 +67,9 @@ body {
 .language:hover {
   border: 2px solid black !important;
 }
+
+/* */
+
 .profileCover {
   border-top-right-radius: 9px;
   border-top-left-radius: 9px;
@@ -48,6 +78,7 @@ body {
   background-image: url("https://media.licdn.com/dms/image/D4D3DAQETvA-0PrQ0tg/image-scale_191_1128/0/1678879822720?e=1696240800&v=beta&t=3D2RqYcwcI469Hkn_HVlkbonYCLPR_t7BtytWof07mA");
   background-size: cover;
   background-position: center;
+  object-position: center;
   overflow: hidden;
 }
 
@@ -100,4 +131,19 @@ body {
 .mt-sidebar {
   margin-top: 110px;
   margin-inline: 15px;
+}
+.mt-canvas {
+  margin-top: 95px;
+}
+.tight-letter-spacing {
+  letter-spacing: -0.03em; /* Modifica il valore a tuo piacimento */
+}
+.fs-7 {
+  font-size: 0.7rem;
+}
+
+@media screen and (max-width: 750px) {
+  #sidebar {
+    display: none;
+  }
 }
