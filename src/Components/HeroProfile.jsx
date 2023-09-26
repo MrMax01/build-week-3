@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchProfile } from "../redux/actions";
 import Resources from "./Resources";
 import Information from "./Information";
@@ -12,10 +12,17 @@ import MyExperience from "./MyExperience";
 function HeroProfile() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile.content);
+  const { profileId } = useParams();
   useEffect(() => {
-    dispatch(fetchProfile());
+    console.log(profileId);
+    if (profileId) {
+      console.log(profileId);
+      dispatch(fetchProfile(profileId));
+    } else {
+      dispatch(fetchProfile());
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [profileId]);
   return (
     // HERO SECTION
 
