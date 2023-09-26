@@ -6,7 +6,7 @@ import MyNavbar from "./components/MyNavbar";
 import LinkedInFooter from "./components/LinkedinFooter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./components/Main";
-import HomePage from "./components/HomePage";
+import Default from "./components/Default";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <MyNavbar />
 
         <Routes>
-          <Route path="" element={<HomePage />} />
+          <Route path="" element={<Default />} />
           <Route path="/me" element={<Main />} />
           <Route path="/profile/:profileId" element={<Main />} />
         </Routes>

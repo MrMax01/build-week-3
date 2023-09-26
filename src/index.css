@@ -7,6 +7,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 .navbar {
+  height: 58px;
   width: 1128px;
   margin: 0 auto;
 }
@@ -16,13 +17,22 @@ code {
   background: white;
   z-index: 10000;
 }
-
 .nav-link,
 .nav-item {
   width: 80px;
 }
 .navbar-nav i {
   font-size: 30px;
+}
+.nav-link div {
+  display: flex !important;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-link div div i {
+  height: 30px;
 }
 .nav-link span {
   font-size: 0.738rem;
@@ -39,11 +49,6 @@ code {
 }
 
 .dropNav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
   height: 100%;
 }
 
@@ -55,13 +60,18 @@ code {
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+.btn-navOffcanvas i {
+  font-size: 1rem;
 }
 
 .premium {
+  display: flex;
   color: gold;
   width: 120px;
   text-decoration: underline !important;
+  font-size: 1rem;
 }
 .dropdownSizesControl {
   width: 400px;
@@ -72,9 +82,56 @@ code {
   justify-content: flex-start;
 }
 .offcanvas {
-  margin-top: 100px;
+  margin-top: 59px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .btn-outline-primary {
   height: 40px;
+}
+
+.addPhoto {
+  margin-top: 100px;
+}
+.addPhoto .modal-content {
+  width: 744px;
+}
+.addPhoto .modal-content .modalProfile {
+  width: 45%;
+}
+
+@media screen and (max-width: 1150px) {
+  .navbar {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .navbar form {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link,
+  .nav-item {
+    width: 50px;
+  }
+  .nav-link span,
+  .nav-item,
+  .btn-navOffcanvas {
+    display: none !important;
+  }
+  .premium {
+    display: none !important;
+  }
+
+  .profileDrop a {
+    border-right: none;
+  }
 }
