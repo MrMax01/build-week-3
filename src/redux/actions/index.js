@@ -2,12 +2,13 @@ export const SELECT_PROFILE = "SELECT_PROFILE";
 export const MY_PROFILE = "MY_PROFILE";
 export const LOADING = "LOADING";
 export const ERROR = "ERROR";
+export const GET_EXPERIENCE = "GET_EXPERIENCE";
 
-const baseEndPoint = "https://barbie-linkedin.cyclic.cloud/api/profile/";
+const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/";
 const headers = {
   headers: {
-    team: "team-2",
-    // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
   },
 };
 export const fetchProfile = (userId = "me") => {
@@ -49,16 +50,42 @@ export const GET_PERSONE_ASIDE = "GET_PERSONE_ASIDE";
 export const getPersoneAside = () => {
   return async (dispatch) => {
     try {
-      let resp = await fetch("https://barbie-linkedin.cyclic.cloud/api/profile/", {
+      let resp = await fetch("https://striveschool-api.herokuapp.com/api/profile/", {
         method: "GET",
         headers: {
-          team: "team-2",
-          // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExMzg0ODM3NTJhODAwMTQ1Njg3NjIiLCJpYXQiOjE2OTU2MjczMzcsImV4cCI6MTY5NjgzNjkzN30.R0yTN0r5Ct2hhB51PttVXFrZTwy8g1PkYbzMH0FGtuA",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
         },
       });
       if (resp.ok) {
         let fetchedPersoneAside = await resp.json();
         dispatch({ type: GET_PERSONE_ASIDE, payload: fetchedPersoneAside });
+      } else {
+        console.log("error");
+        alert("Errore nel reperimento dei dati personeAside ");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getExperience = () => {
+  return async (dispatch, getState) => {
+    try {
+      let resp = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/" + getState().profile.content._id + "/experiences",
+        {
+          method: "GET",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
+          },
+        }
+      );
+      if (resp.ok) {
+        let myExperienceFetched = await resp.json();
+        dispatch({ type: GET_EXPERIENCE, payload: myExperienceFetched });
       } else {
         console.log("error");
         alert("Errore nel reperimento dei dati personeAside ");

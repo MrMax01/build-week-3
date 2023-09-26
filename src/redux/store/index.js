@@ -4,6 +4,7 @@ import myProfileReducer from "../reducers/myProfile";
 import loadingReducer from "../reducers/loadingReducer";
 import errorReducer from "../reducers/errorReducer";
 import personeAsideReducer from "../reducers/aside";
+import experienceReducer from "../reducers/experience";
 
 const rootReducer = combineReducers({
   profile: profileSelectedReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   loading: loadingReducer,
   error: errorReducer,
   aside: personeAsideReducer,
+  experience: experienceReducer,
 });
 
 export const store = configureStore({
