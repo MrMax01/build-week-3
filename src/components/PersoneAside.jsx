@@ -1,4 +1,5 @@
 import { PersonPlus } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
 const PersoneAside = ({ arrayPersone }) => {
   return (
@@ -17,9 +18,11 @@ const PersoneAside = ({ arrayPersone }) => {
                 />
               </div>
               <div className="w-100">
-                <h3 className="fs-5 my-1 nomeUtenteSelezionabile" role="button">
-                  {arraySingolopersone.name} {arraySingolopersone.surname}
-                </h3>
+                <Link to={`/profile/${arraySingolopersone._id}`}>
+                  <h3 className="fs-5 my-1 nomeUtenteSelezionabile" role="button">
+                    {arraySingolopersone.name} {arraySingolopersone.surname}
+                  </h3>
+                </Link>
                 <p className="my-1">{arraySingolopersone.title}</p>
                 <div>
                   <button className="w-75 rounded-pill bottoneSelezionabile ">

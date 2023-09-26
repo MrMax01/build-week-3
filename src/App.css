@@ -101,3 +101,9 @@ body {
   margin-top: 110px;
   margin-inline: 15px;
 }
+
+@media screen and (max-width: 750px) {
+  #sidebar {
+    display: none;
+  }
+}
