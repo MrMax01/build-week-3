@@ -1,9 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 code {
@@ -30,6 +27,15 @@ code {
 .nav-link span {
   font-size: 0.738rem;
   font-weight: 400;
+}
+.nav-link div div {
+  margin: 0 auto;
+  width: 30px;
+  height: 40px;
+}
+.nav-link:hover {
+  color: black !important;
+  text-decoration: none !important;
 }
 
 .dropNav a {
@@ -58,5 +64,17 @@ code {
   text-decoration: underline !important;
 }
 .dropdownSizesControl {
-  width: 250px;
+  width: 400px;
+}
+.dropdownSizesControl a {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.offcanvas {
+  margin-top: 100px;
+}
+
+.btn-outline-primary {
+  height: 40px;
 }

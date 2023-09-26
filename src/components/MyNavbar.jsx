@@ -60,27 +60,35 @@ const MyNavbar = () => {
               </Nav.Link>
               <Nav.Link>
                 <div>
-                  <i className="bi bi-people-fill"></i>
+                  <div>
+                    <i className="bi bi-people-fill"></i>
+                  </div>
+                  <span>My Network</span>
                 </div>
-                <span>My Network</span>
               </Nav.Link>
               <Nav.Link>
                 <div>
-                  <i className="bi bi-briefcase-fill"></i>
+                  <div>
+                    <i className="bi bi-briefcase-fill"></i>
+                  </div>
+                  <span>Jobs</span>
                 </div>
-                <span>Jobs</span>
               </Nav.Link>
               <Nav.Link>
                 <div>
-                  <i className="bi bi-chat-dots-fill"></i>
+                  <div>
+                    <i className="bi bi-chat-dots-fill"></i>
+                  </div>
+                  <span>Messaging</span>
                 </div>
-                <span>Messaging</span>
               </Nav.Link>
               <Nav.Link>
                 <div>
-                  <i className="bi bi-bell-fill"></i>
+                  <div>
+                    <i className="bi bi-bell-fill"></i>
+                  </div>
+                  <span>Notifications</span>
                 </div>
-                <span>Notifications</span>
               </Nav.Link>
               <NavDropdown
                 title={
@@ -96,18 +104,34 @@ const MyNavbar = () => {
                 <div className="dropdownSizesControl">
                   <NavDropdown.Item>
                     <Row>
-                      <Col xs={3}>
-                        <img alt="me" src={myProfile.image} width={24} height={24} className="rounded-circle" />
+                      <Col xs={4}>
+                        <img alt="me" src={myProfile.image} width={80} height={80} className="rounded-circle" />
                       </Col>
-                      <Col>
+                      <Col xs={8}>
                         <Row>
                           {myProfile.surname} {myProfile.name}
                         </Row>
+                        <Row>{myProfile.title}</Row>
                       </Col>
                     </Row>
                   </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Button variant="outline-primary" className="w-100" height={20}>
+                      View Profile
+                    </Button>
+                  </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item>Some</NavDropdown.Item>
+                  <NavDropdown.Header>Account</NavDropdown.Header>
+                  <NavDropdown.Item>Try Premium For Free</NavDropdown.Item>
+                  <NavDropdown.Item>Settings & Privecy</NavDropdown.Item>
+                  <NavDropdown.Item>Help</NavDropdown.Item>
+                  <NavDropdown.Item>Languege</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Header>Manage</NavDropdown.Header>
+                  <NavDropdown.Item>Posts & Activity</NavDropdown.Item>
+                  <NavDropdown.Item>Job Posting Account</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item>Sign Out</NavDropdown.Item>
                 </div>
               </NavDropdown>
 
