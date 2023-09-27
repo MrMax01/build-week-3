@@ -17,18 +17,20 @@ const MySideBar = () => {
     <aside style={{ width: "300px" }} className="bg-white border rounded mt-sidebar ">
       <div className="rounded  p-4 mb-2">
         <div className="relative d-flex justify-content-between">
-          <div className="fw-bold">
-            <span> Lingua del Profilo</span>
-            <p>Italiano</p>
+          <div>
+            <span style={{ fontSize: "17px", fontWeight: "500" }}> Lingua del Profilo</span>
+            <p className="text-secondary" style={{ fontSize: "14px" }}>
+              Italiano
+            </p>
           </div>
           <div>
             <Pencil role="button" />
           </div>
         </div>
-        <hr className="mt-4 mb-4" />
+        <hr className="mt-2 mb-2" />
         <div className="relative d-flex flex-column">
           <div className="d-flex justify-content-between">
-            <span className="fw-bold"> Public profile & Url</span>
+            <span style={{ fontSize: "17px", fontWeight: "500" }}> Public profile & Url</span>
             <div>
               <Pencil role="button" />
             </div>
@@ -38,14 +40,16 @@ const MySideBar = () => {
           </p>
         </div>
       </div>
-      <hr className="my-1 text-white" />
+      <hr className="my-0 text-white" />
       <section>
         <div className="p-4 mb-2">
           <div className="d-flex flex-column ">
             <h2 className="m-0" style={{ fontSize: "16px" }}>
               Persone che potresti conoscere
             </h2>
-            <p>Dalla tua scuola o università</p>
+            <p className="text-secondary" style={{ fontSize: "14px" }}>
+              Dalla tua scuola o università
+            </p>
           </div>
 
           {arrayPersoneAside && arrayPersoneAside.length > 0 && showMore === true && (

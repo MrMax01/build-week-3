@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import { PersonPlus } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 
@@ -7,7 +8,7 @@ const PersoneAside = ({ arrayPersone }) => {
       {arrayPersone &&
         arrayPersone.map((arraySingolopersone) => (
           <div key={arraySingolopersone._id}>
-            <div className="d-flex py-3">
+            <div className="d-flex py-1" style={{ fontSize: "14px" }}>
               <div style={{ paddingRight: "20px" }}>
                 <Link to={`/profile/${arraySingolopersone._id}`}>
                   <img
@@ -21,15 +22,19 @@ const PersoneAside = ({ arrayPersone }) => {
               </div>
               <div className="w-100">
                 <Link to={`/profile/${arraySingolopersone._id}`}>
-                  <h3 className="fs-5 my-1 nomeUtenteSelezionabile" role="button">
+                  <h4
+                    className="my-1 nomeUtenteSelezionabile"
+                    style={{ fontSize: "1.1rem", fontWeight: "500" }}
+                    role="button"
+                  >
                     {arraySingolopersone.name} {arraySingolopersone.surname}
-                  </h3>
+                  </h4>
                 </Link>
                 <p className="my-1">{arraySingolopersone.title}</p>
                 <div>
-                  <button className="w-75 rounded-pill bottoneSelezionabile ">
+                  <Button className="w-75 py-1 rounded-5 border border-dark bottoneSelezionabile bg-white text-secondary">
                     <PersonPlus /> <span style={{ fontSize: "16px", fontWeight: "500" }}>Collegati</span>
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

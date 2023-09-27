@@ -21,7 +21,6 @@ function HeroProfile() {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    console.log(profileId);
     if (profileId) {
       console.log(profileId);
       dispatch(fetchProfile(profileId));

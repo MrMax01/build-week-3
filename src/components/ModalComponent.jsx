@@ -23,9 +23,7 @@ const ModalComponent = ({ showModal, setShowModal }) => {
   const [area, setArea] = useState(profile.area);
 
   useEffect(() => {
-    console.log(profileId);
     if (profileId) {
-      console.log(profileId);
       dispatch(fetchProfile(profileId));
     } else {
       dispatch(fetchProfile());

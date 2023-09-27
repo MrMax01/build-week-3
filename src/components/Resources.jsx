@@ -3,7 +3,7 @@ import { Card, Container, ListGroup } from "react-bootstrap";
 const Resources = () => {
   return (
     <Container className="mt-2 px-0">
-      <Card>
+      <Card className="px-2">
         <Card.Header className="border-bottom-0 bg-white">
           <h5 className="mb-0">Risorse</h5>
           <div className="fw-light fs-6">
