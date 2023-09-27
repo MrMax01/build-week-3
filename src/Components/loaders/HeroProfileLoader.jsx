@@ -44,19 +44,19 @@ function HeroProfileLoaders() {
             <Row className="mt-2 btn-hero">
               <Col sm={12} md={12}>
                 <Link to="/">
-                  <Button variant="primary" className="button-loader bg-success me-1" style={{ fontWeight: "500" }}>
+                  <Button variant="primary" className="button-loader bg-primary me-1" style={{ fontWeight: "500" }}>
                     {"          "}
                   </Button>
                 </Link>
 
                 <Link to="/">
-                  <Button className=" button-loader bg-success me-1" style={{ fontWeight: "500" }}>
+                  <Button className=" button-loader bg-primary me-1" style={{ fontWeight: "500" }}>
                     {"                            "}
                   </Button>
                 </Link>
 
                 <Link to="/">
-                  <Button className="button-loader bg-success me-1" style={{ fontWeight: "500" }}>
+                  <Button className="button-loader bg-primary me-1" style={{ fontWeight: "500" }}>
                     {"     "}
                   </Button>
                 </Link>

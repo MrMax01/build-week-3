@@ -35,7 +35,7 @@ const MySideBarLoader = () => {
             <p className="div-fs-sm bg-dark"> </p>
             <p className="div-subtitle-loader bg-secondary"></p>
             <div>
-              <Button className="button-loader bg-success me-1" style={{ fontWeight: "500" }}></Button>
+              <Button className="button-loader bg-primary me-1" style={{ fontWeight: "500" }}></Button>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ const MySideBarLoader = () => {
             <p className="div-fs-sm bg-dark"> </p>
             <p className="div-subtitle-loader bg-secondary"></p>
             <div>
-              <Button className="button-loader bg-success me-1" style={{ fontWeight: "500" }}></Button>
+              <Button className="button-loader bg-primary me-1" style={{ fontWeight: "500" }}></Button>
             </div>
           </div>
         </div>
