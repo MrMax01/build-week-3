@@ -7,33 +7,62 @@ const ModalComponent = ({ experience }) => {
   const [show, setShow] = useState(false);
   const idProfile = useSelector((state) => state.profile.content);
 
+  const [role, setRole] = useState("");
+  const [company, setCompany] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+  const [description, setDescription] = useState("");
+  const [city, setCity] = useState("");
+
+  const handleChangeRole = (e) => {
+    setRole(e.target.value);
+  };
+  const handleChangeCompany = (e) => {
+    setCompany(e.target.value);
+  };
+  const handleChangeStart = (e) => {
+    setStart(e.target.value);
+  };
+  const handleChangeEnd = (e) => {
+    setEnd(e.target.value);
+  };
+  const handleChangeDescription = (e) => {
+    setDescription(e.target.value);
+  };
+  const handleChangeCity = (e) => {
+    setCity(e.target.value);
+  };
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = async (e, experience) => {
-    const objExperience = e.currentTarget;
-    console.log(objExperience);
-    //    try {
-    //   const response = await fetch(
-    //     "https://striveschool-api.herokuapp.com/api/profile/" + idProfile + "/experiences/" + experience,
-    //     {
-    //       method: "PUT",
-    //       body: JSON.stringify({
-    //        role:
-
-    //       }),
-    //       headers: {
-    //         Authorization:
-    //           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
-    //       },
-    //     }
-    //   );
-    //   if (response.ok) {
-    //     alert("Esperienza Eliminata con successo!");
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+  const handleSubmit = async (experience) => {
+    console.log(idProfile);
+    try {
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/" + idProfile._id + "/experiences/" + experience,
+        {
+          method: "PUT",
+          body: JSON.stringify({
+            role: role,
+            company: company,
+            start: start,
+            end: end,
+            description: description,
+            area: city,
+          }),
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
+          },
+        }
+      );
+      if (response.ok) {
+        alert("Esperienza Modificata con successo!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -52,15 +81,26 @@ const ModalComponent = ({ experience }) => {
             <Modal.Body>
               <Form.Label htmlFor="basic-url">Role</Form.Label>
               <InputGroup className="mb-3">
-                <Form.Control id="basic-url" aria-describedby="basic-addon3" placeholder={experience.role} />
+                <Form.Control
+                  onChange={handleChangeRole}
+                  id="basic-url"
+                  aria-describedby="basic-addon3"
+                  placeholder={experience.role}
+                />
               </InputGroup>
               <Form.Label htmlFor="basic-url">Company</Form.Label>
               <InputGroup className="mb-3">
-                <Form.Control id="basic-url" aria-describedby="basic-addon3" placeholder={experience.company} />
+                <Form.Control
+                  onChange={handleChangeCompany}
+                  id="basic-url"
+                  aria-describedby="basic-addon3"
+                  placeholder={experience.company}
+                />
               </InputGroup>
               <Form.Label htmlFor="basic-url">Start</Form.Label>
               <InputGroup className="mb-3">
                 <Form.Control
+                  onChange={handleChangeStart}
                   id="basic-url"
                   aria-describedby="basic-addon3"
                   placeholder={experience.startDate.slice(0, 10)}
@@ -69,6 +109,7 @@ const ModalComponent = ({ experience }) => {
               <Form.Label htmlFor="basic-url">End</Form.Label>
               <InputGroup className="mb-3">
                 <Form.Control
+                  onChange={handleChangeEnd}
                   id="basic-url"
                   aria-describedby="basic-addon3"
                   placeholder={experience.endDate.slice(0, 10)}
@@ -76,11 +117,21 @@ const ModalComponent = ({ experience }) => {
               </InputGroup>
               <Form.Label htmlFor="basic-url">Description</Form.Label>
               <InputGroup className="mb-3">
-                <Form.Control id="basic-url" aria-describedby="basic-addon3" placeholder={experience.description} />
+                <Form.Control
+                  onChange={handleChangeDescription}
+                  id="basic-url"
+                  aria-describedby="basic-addon3"
+                  placeholder={experience.description}
+                />
               </InputGroup>
               <Form.Label htmlFor="basic-url">City</Form.Label>
               <InputGroup className="mb-3">
-                <Form.Control id="basic-url" aria-describedby="basic-addon3" placeholder={experience.area} />
+                <Form.Control
+                  onChange={handleChangeCity}
+                  id="basic-url"
+                  aria-describedby="basic-addon3"
+                  placeholder={experience.area}
+                />
               </InputGroup>
             </Modal.Body>
             <Modal.Footer>
