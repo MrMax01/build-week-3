@@ -15,7 +15,7 @@ import logo from "../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchMyProfile } from "../redux/actions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyNavbar = () => {
   const [show, setShow] = useState(false);
@@ -24,7 +24,7 @@ const MyNavbar = () => {
   const dispatch = useDispatch();
   const myProfile = useSelector((state) => state.myProfile.myContent);
   let loading = useSelector((state) => state.loading.loading);
-
+  const navigation = useNavigate();
   useEffect(() => {
     dispatch(fetchMyProfile());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -36,7 +36,11 @@ const MyNavbar = () => {
     return (
       <Container fluid className="navbarContainer">
         <Navbar expand="sm" variant="light" className="py-0">
-          <Navbar.Brand>
+          <Navbar.Brand
+            onClick={() => {
+              navigation("/feed");
+            }}
+          >
             <img alt="logo" src={logo} height={41} />
           </Navbar.Brand>
 
@@ -52,7 +56,11 @@ const MyNavbar = () => {
 
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav className="text-center">
-              <Nav.Link>
+              <Nav.Link
+                onClick={() => {
+                  navigation("/feed");
+                }}
+              >
                 <div>
                   <div>
                     <i className="bi bi-house-fill"></i>
@@ -122,7 +130,13 @@ const MyNavbar = () => {
                     </Row>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
-                    <Button variant="outline-primary" className="w-100 rounded-pill">
+                    <Button
+                      variant="outline-primary"
+                      className="w-100 rounded-pill"
+                      onClick={() => {
+                        navigation("/me");
+                      }}
+                    >
                       Visualizza Profil
                     </Button>
                   </NavDropdown.Item>

@@ -3,6 +3,7 @@ export const MY_PROFILE = "MY_PROFILE";
 export const LOADING = "LOADING";
 export const ERROR = "ERROR";
 export const GET_EXPERIENCE = "GET_EXPERIENCE";
+export const POST_PICTURE = "POST_PICTURE";
 
 const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/";
 
@@ -85,6 +86,43 @@ export const getExperience = () => {
         console.log("error");
         alert("Errore nel reperimento dei dati personeAside ");
       }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const postPictureAction = (data) => {
+  return async () => {
+    try {
+      let resp = await fetch("https://striveschool-api.herokuapp.com/api/profile/651141923752a80014568769/picture/", {
+        method: "POST",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
+        },
+        body: data,
+      });
+      return resp.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+export const postTextPost = (data) => {
+  const post = { text: data };
+  return async () => {
+    try {
+      let resp = await fetch("https://striveschool-api.herokuapp.com/api/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
+        },
+        body: JSON.stringify(post),
+      });
+      return resp.json();
     } catch (error) {
       console.log(error);
     }
