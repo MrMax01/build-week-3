@@ -25,6 +25,7 @@ const MyExperience = () => {
       );
       if (response.ok) {
         alert("Esperienza Eliminata con successo!");
+        dispatch({ type: "UPDATED", payload: ["changed"] });
       }
     } catch (error) {
       console.log(error);
@@ -49,9 +50,7 @@ const MyExperience = () => {
         <Card.Header className="border-bottom-0 bg-white d-flex justify-content-between">
           <h5 className="mb-0">Experience</h5>
           <div>
-            <Button className="btn-experience">
-              Create Experience <MyModalCreatePost />
-            </Button>
+            <MyModalCreatePost />
           </div>
         </Card.Header>
         <ListGroup variant="flush" className="p-2">

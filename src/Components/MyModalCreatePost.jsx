@@ -48,7 +48,7 @@ const MyModalCreatePost = () => {
 
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" + idProfile._id + "/experiences",
+        "https://striveschool-api.herokuapp.com/api/profile/651141923752a80014568769/experiences/",
         {
           method: "POST",
           body: JSON.stringify({
@@ -77,14 +77,14 @@ const MyModalCreatePost = () => {
 
   return (
     <>
-      <Button onClick={handleShow}>
-        <Pencil />
+      <Button className="btn-experience" onClick={handleShow}>
+        Create an Experience
       </Button>
       <Modal show={show} onHide={handleClose} className="mt-sidebar">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Modal.Header closeButton>
             <Modal.Title>
-              <p>Modifica le tue esperienze</p>
+              <p>Crea le tue esperienze</p>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>

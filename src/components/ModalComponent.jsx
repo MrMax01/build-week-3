@@ -3,7 +3,7 @@ import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 
-const ModalComponent = ({ experience }, { createPost }) => {
+const ModalComponent = ({ experience }) => {
   // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
   const dispatch = useDispatch();
   const [validated, setValidated] = useState(false);
@@ -35,6 +35,9 @@ const ModalComponent = ({ experience }, { createPost }) => {
   };
   const handleClose = () => setShow(false);
   const handleShow = () => {
+    setShow(true);
+  };
+  const handleShowPUT = () => {
     setShow(true);
     setCity(experience.area);
     setRole(experience.role);
@@ -78,7 +81,7 @@ const ModalComponent = ({ experience }, { createPost }) => {
       );
       if (response.ok) {
         handleClose();
-        // dispatch({ type: "UPDATED", payload: [role, company, description, city, start, end] });
+        dispatch({ type: "UPDATED", payload: [role, company, description, city, start, end] });
       }
     } catch (error) {
       console.log(error);
@@ -89,7 +92,7 @@ const ModalComponent = ({ experience }, { createPost }) => {
     <>
       {experience ? (
         <>
-          <Button onClick={handleShow}>
+          <Button onClick={handleShowPUT}>
             <Pencil />
           </Button>
           <Modal show={show} onHide={handleClose} className="mt-sidebar">
@@ -121,11 +124,7 @@ const ModalComponent = ({ experience }, { createPost }) => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="validationCustom04">
                   <Form.Label>End</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    onChange={handleChangeEnd}
-                    defaultValue={experience.endDate.slice(0, 10)}
-                  />
+                  <Form.Control onChange={handleChangeEnd} defaultValue={experience.endDate.slice(0, 10)} />
                   <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="validationCustom05">
