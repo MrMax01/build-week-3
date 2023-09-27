@@ -7,6 +7,7 @@ import LinkedInFooter from "./components/LinkedinFooter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./components/Main";
 import Default from "./components/Default";
+import HeroProfileLoaders from "./components/loaders/HeroProfileLoader";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="" element={<Default />} />
           <Route path="/me" element={<Main />} />
           <Route path="/profile/:profileId" element={<Main />} />
+          <Route path="/prova" element={<HeroProfileLoaders />} />
         </Routes>
         <LinkedInFooter />
       </BrowserRouter>
