@@ -1,11 +1,15 @@
 import { useEffect } from "react";
-import { Card, Container, Dropdown, ListGroup } from "react-bootstrap";
+import { Button, Card, Container, Dropdown, ListGroup } from "react-bootstrap";
 import { getExperience } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { Pencil } from "react-bootstrap-icons";
+import { Pencil, Trash } from "react-bootstrap-icons";
+import ModalComponent from "./ModalComponent";
+import MyModalCreatePost from "./MyModalCreatePost";
 
 const MyExperience = () => {
+  const arrayExperience = useSelector((state) => state.experience.content);
   const idProfile = useSelector((state) => state.profile.content._id);
+  const updatedState = useSelector((state) => state.update.content);
   const handleElimina = async (experience) => {
     console.log(experience);
     try {
@@ -21,23 +25,33 @@ const MyExperience = () => {
       );
       if (response.ok) {
         alert("Esperienza Eliminata con successo!");
+        dispatch({ type: "UPDATED", payload: ["changed"] });
       }
     } catch (error) {
       console.log(error);
     }
   };
-  const arrayExperience = useSelector((state) => state.experience.content);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getExperience());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idProfile]);
 
+  useEffect(() => {
+    console.log("ciao");
+    dispatch(getExperience());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [updatedState]);
+
   return (
     <Container className="mt-2 px-0">
-      <Card className="px-2">
-        <Card.Header className="border-bottom-0 bg-white">
-          <h5 className="mb-0">Esperienze</h5>
+      <Card>
+        <Card.Header className="border-bottom-0 bg-white d-flex justify-content-between">
+          <h5 className="mb-0">Experience</h5>
+          <div>
+            <MyModalCreatePost />
+          </div>
         </Card.Header>
         <ListGroup variant="flush" className="p-2">
           {arrayExperience &&
@@ -52,24 +66,32 @@ const MyExperience = () => {
                     <p className="m-0 fw-bold fs-6">{experience.role.toUpperCase()} </p>
                     <p className="m-0 fw-light fs-6">Company:{experience.company}</p>
                     <p className="m-0 fw-light fs-6">
-                      Start: {typeof experience.startDate === "string" && experience.startDate.slice(0, 10)} End:{" "}
-                      {experience.endDate && experience.endDate.slice(0, 10)}
+                      Start: {typeof experience.startDate === "string" && experience.startDate.slice(0, 10)}
+                      End: {experience.endDate && experience.endDate.slice(0, 10)}
                     </p>
                     <p className="m-0 fw-light fs-6"> {experience.description}</p>
                     <p className="m-0 fw-light fs-6"> Area:{experience.area}</p>
                   </div>
                 </div>
-                <div className="grow-1">
-                  <Dropdown>
-                    <Dropdown.Toggle variant="none" id="dropdown-basic">
-                      <Pencil />
-                    </Dropdown.Toggle>
+                <div className="grow-1 ">
+                  <div>
+                    <Dropdown>
+                      <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        <Pencil />
+                      </Dropdown.Toggle>
 
-                    <Dropdown.Menu>
-                      <Dropdown.Item onClick={() => handleElimina(experience._id)}>Elimina</Dropdown.Item>
-                      <Dropdown.Item>Modifica</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                      <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleElimina(experience._id)}>
+                          <Button className="bg-danger">
+                            <Trash />
+                          </Button>
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                          <ModalComponent experience={experience} />
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </div>
                 </div>
               </ListGroup.Item>
             ))}

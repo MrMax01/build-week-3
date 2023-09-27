@@ -5,6 +5,7 @@ import loadingReducer from "../reducers/loadingReducer";
 import errorReducer from "../reducers/errorReducer";
 import personeAsideReducer from "../reducers/aside";
 import experienceReducer from "../reducers/experience";
+import updatedReducer from "../reducers/updated";
 
 const rootReducer = combineReducers({
   profile: profileSelectedReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   error: errorReducer,
   aside: personeAsideReducer,
   experience: experienceReducer,
+  update: updatedReducer,
 });
 
 export const store = configureStore({
