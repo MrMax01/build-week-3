@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
@@ -37,24 +37,24 @@ const ModalComponent = ({ experience }) => {
   const handleShow = () => setShow(true);
 
   const handleSubmit = async (experience) => {
-    const updatedExperienceObj = {
-      role,
-      company,
-      start,
-      end,
-      description,
-      city,
-    };
     console.log(idProfile);
     try {
       const response = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/" + idProfile._id + "/experiences/" + experience,
         {
           method: "PUT",
-          body: JSON.stringify(updatedExperienceObj),
+          body: JSON.stringify({
+            role: role,
+            company: company,
+            description: description,
+            area: city,
+            startDate: start,
+            endDate: end,
+          }),
           headers: {
             Authorization:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
+            "Content-Type": "application/json",
           },
         }
       );
@@ -65,6 +65,7 @@ const ModalComponent = ({ experience }) => {
       console.log(error);
     }
   };
+  useEffect(() => {}, [role, company, description, city, start, end]);
 
   return (
     <>
