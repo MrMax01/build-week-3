@@ -36,7 +36,7 @@ function HeroProfile() {
     <>
       {profile && (
         <>
-          <Container sm={12} md={8} className="cover-image mt-sidebar ms-0 p-0 border rounded-3 bg-light">
+          <Container sm={12} md={8} className="cover-image mt-sidebar ms-0 p-0 border rounded-3 bg-white">
             <Container>
               <Row className="d-flex align-items-end">
                 <Container>
@@ -78,20 +78,25 @@ function HeroProfile() {
                 <Row className="px-3 mx-0">
                   <Row className="ancorHero" style={{ fontSize: "15px" }}>
                     <div className="d-flex justify-content-between">
-                      <h2 className="mb-0 mt-0">
+                      <h3 className="mb-0 mt-0">
                         {profile.name} {profile.surname}
-                      </h2>
+                      </h3>
 
                       <ModalComponent />
                     </div>
                     <p className="mb-0">{profile.title}</p>
                     <p className="mb-0 mt-3 text-secondary">
-                      {profile.area} &middot;
-                      <Link to="/" style={{ textDecoration: "none", fontWeight: "bold" }}>
-                        Informazioni di contatto
+                      {profile.area}
+                      <span className="mx-1">&middot;</span>
+                      <Link to="/" style={{ textDecoration: "none", fontWeight: "500" }}>
+                        <span className="text-primary nav-link3">Informazioni di contatto</span>
                       </Link>
                     </p>
-                    <Link to="/" className="mb-0 mt-1" style={{ textDecoration: "none", fontWeight: "bold" }}>
+                    <Link
+                      to="/"
+                      className="mb-0 mt-1 text-primary nav-link3"
+                      style={{ textDecoration: "none", fontWeight: "500" }}
+                    >
                       245 collegamenti
                     </Link>
                   </Row>
@@ -109,7 +114,7 @@ function HeroProfile() {
 
                       <Link to="/">
                         <Button
-                          className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz"
+                          className=" button bg-white border rounded-5 text-primary mx-2 border border-primary btnQuiz"
                           style={{ fontWeight: "500" }}
                         >
                           Aggiungi sezione del profilo
@@ -118,7 +123,7 @@ function HeroProfile() {
 
                       <Link to="/">
                         <Button
-                          className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2"
+                          className="bg-white border rounded-5 text-secondary border border-dark btnQuiz2"
                           style={{ fontWeight: "500" }}
                         >
                           Altro
@@ -130,29 +135,29 @@ function HeroProfile() {
               </Row>
               <Row className="px-3 mx-0 mb-4">
                 <Col
-                  className="mt-4 p-3 me-4"
+                  className="mt-4 p-3 me-4 py-2"
                   style={{
                     width: "100px",
-                    backgroundColor: "rgba(123, 148, 169, 0.388)",
+                    backgroundColor: "#DDE7F1",
                     borderRadius: "20px",
                   }}
                 >
                   <div className="d-flex justify-content-between">
-                    <p className="mb-0" style={{ fontWeight: "bold" }}>
+                    <p className="mb-0" style={{ fontWeight: "500" }}>
                       Disponibile a lavorare
                     </p>
                     <div>
-                      <Pencil role="button" />
+                      <Pencil role="button" className=" btn-info" />
                     </div>
                   </div>
                   <p className="mb-0">Ruoli di Sviluppatore Full Stack</p>
-                  <Link style={{ fontWeight: "bold", textDecoration: "none" }} to="/">
+                  <Link className="text-primary nav-link3" style={{ textDecoration: "none", fontWeight: "500" }} to="/">
                     Mostra dettagli
                   </Link>
                 </Col>
 
                 <Col
-                  className="mt-4 p-3 border border-1"
+                  className="mt-4 p-3 border border-1 py-2"
                   style={{
                     width: "150px",
                     backgroundColor: "transparent",
@@ -160,13 +165,15 @@ function HeroProfile() {
                   }}
                 >
                   <div className="d-flex justify-content-between">
-                    <p style={{ fontWeight: "bold" }}>
+                    <p className="mb-0" style={{ fontWeight: "500" }}>
                       Fai sapere che stai facendo selezione
-                      <span style={{ fontWeight: "lighter" }}>e attrai candidati qualificati</span>.
+                      <span style={{ fontWeight: "lighter" }}> e attrai candidati qualificati.</span>
                     </p>
-                    <X />
+                    <div>
+                      <X role="button" className="fs-3 align-content-top btn-info" />
+                    </div>
                   </div>
-                  <Link style={{ fontWeight: "bold", textDecoration: "none" }} to="/">
+                  <Link className="text-primary nav-link3" style={{ fontWeight: "500", textDecoration: "none" }} to="/">
                     Inizia
                   </Link>
                 </Col>

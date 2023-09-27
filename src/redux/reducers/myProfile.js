@@ -13,8 +13,7 @@ const myProfileReducer = (state = initialState, action) => {
 
     case UPDATE_PROFILE:
       return {
-        ...state,
-        ...action.payload,
+        myContent: action.payload,
       };
 
     default:

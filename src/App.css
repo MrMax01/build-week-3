@@ -32,11 +32,26 @@ a {
 
 .btnQuiz2:hover {
   border: 2px solid black !important;
-  background-color: rgba(0, 0, 0, 0.098) !important;
+  background-color: rgba(0, 0, 0, 0.041) !important;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 11px;
   padding-right: 11px;
+}
+
+.btn-profile {
+  border-radius: 100%;
+  padding-inline: 11px;
+  padding-bottom: 9px;
+}
+
+.btn-profile:hover {
+  background-color: rgba(128, 128, 128, 0.203) !important;
+}
+
+.btn-info:hover {
+  border-radius: 100%;
+  background-color: rgba(128, 128, 128, 0.203);
 }
 
 .bottoneSelezionabile:hover {
@@ -45,8 +60,12 @@ a {
 }
 /* LinkedinFooter */
 .nav-link:hover {
-  color: blue;
-  text-decoration: underline;
+  color: blue !important;
+  text-decoration: underline !important;
+}
+
+.nav-link3:hover {
+  text-decoration: underline !important;
 }
 
 #nav-dropdown {
