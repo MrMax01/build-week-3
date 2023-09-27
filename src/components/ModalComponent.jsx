@@ -37,20 +37,21 @@ const ModalComponent = ({ experience }) => {
   const handleShow = () => setShow(true);
 
   const handleSubmit = async (experience) => {
+    const updatedExperienceObj = {
+      role,
+      company,
+      start,
+      end,
+      description,
+      city,
+    };
     console.log(idProfile);
     try {
       const response = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/" + idProfile._id + "/experiences/" + experience,
         {
           method: "PUT",
-          body: JSON.stringify({
-            role: role,
-            company: company,
-            start: start,
-            end: end,
-            description: description,
-            area: city,
-          }),
+          body: JSON.stringify(updatedExperienceObj),
           headers: {
             Authorization:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
