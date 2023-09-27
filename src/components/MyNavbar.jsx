@@ -65,7 +65,7 @@ const MyNavbar = () => {
                   <div>
                     <i className="bi bi-people-fill"></i>
                   </div>
-                  <span>My Network</span>
+                  <span>Rete</span>
                 </div>
               </Nav.Link>
               <Nav.Link>
@@ -73,7 +73,7 @@ const MyNavbar = () => {
                   <div>
                     <i className="bi bi-briefcase-fill"></i>
                   </div>
-                  <span>Jobs</span>
+                  <span>Lavoro</span>
                 </div>
               </Nav.Link>
               <Nav.Link>
@@ -81,7 +81,7 @@ const MyNavbar = () => {
                   <div>
                     <i className="bi bi-chat-dots-fill"></i>
                   </div>
-                  <span>Messaging</span>
+                  <span>Messagistica</span>
                 </div>
               </Nav.Link>
               <Nav.Link>
@@ -89,15 +89,15 @@ const MyNavbar = () => {
                   <div>
                     <i className="bi bi-bell-fill"></i>
                   </div>
-                  <span>Notifications</span>
+                  <span>Notifiche</span>
                 </div>
               </Nav.Link>
               <NavDropdown
                 title={
                   <>
-                    <img alt="me" src={myProfile.image} width={40} height={40} className="rounded-circle" />
+                    <img alt="me" src={myProfile.image} width={27} height={27} className="rounded-circle mt-2" />
                     <br />
-                    <span>Me</span>
+                    <span>Tu</span>
                   </>
                 }
                 id="dropdown"
@@ -106,44 +106,48 @@ const MyNavbar = () => {
                 <div className="dropdownSizesControl">
                   <NavDropdown.Item>
                     <Row>
-                      <Col xs={4}>
+                      <Col xs={3}>
                         <img alt="me" src={myProfile.image} width={80} height={80} className="rounded-circle" />
                       </Col>
-                      <Col xs={8}>
-                        <Row>
-                          <Link to="/me">
-                            {myProfile.surname} {myProfile.name}
-                          </Link>
+                      <Col xs={7}>
+                        <Row className="text-start">
+                          <div className="d-flex flex-column mt-3 p-0 ps-1">
+                            <Link to="/me">
+                              {myProfile.surname} {myProfile.name}
+                            </Link>
+                            <div>{myProfile.title}</div>
+                          </div>
                         </Row>
-                        <Row>{myProfile.title}</Row>
                       </Col>
                     </Row>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
-                    <Button variant="outline-primary" className="w-100" height={20}>
-                      View Profile
+                    <Button variant="outline-primary" className="w-100 rounded-pill">
+                      Visualizza Profil
                     </Button>
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Header>Account</NavDropdown.Header>
-                  <NavDropdown.Item>Try Premium For Free</NavDropdown.Item>
-                  <NavDropdown.Item>Settings & Privecy</NavDropdown.Item>
-                  <NavDropdown.Item>Help</NavDropdown.Item>
-                  <NavDropdown.Item>Languege</NavDropdown.Item>
+                  <NavDropdown.Item>Prova Premium gratis</NavDropdown.Item>
+                  <NavDropdown.Item>Impostazioni & privecy</NavDropdown.Item>
+                  <NavDropdown.Item>Guida</NavDropdown.Item>
+                  <NavDropdown.Item>Lingua</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Header>Manage</NavDropdown.Header>
-                  <NavDropdown.Item>Posts & Activity</NavDropdown.Item>
-                  <NavDropdown.Item>Job Posting Account</NavDropdown.Item>
+                  <NavDropdown.Header>Gestisci</NavDropdown.Header>
+                  <NavDropdown.Item>Posts & attività</NavDropdown.Item>
+                  <NavDropdown.Item>Account per la pubblicazione di Off...</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item>Sign Out</NavDropdown.Item>
                 </div>
               </NavDropdown>
 
-              <Button variant="navOffcanvas" className="border border-0" onClick={() => handleShow()}>
-                <i className="bi bi-grid-3x3-gap-fill fs-4"></i>{" "}
-                <span className="fs-6 fw-light m-0 d-block">
-                  per le aziende <i className="bi bi-caret-down-fill fs-7"></i>
-                </span>
+              <Button variant="navOffcanvas" className="border border-0 p-0" onClick={() => handleShow()}>
+                <div className=" border-start">
+                  <i className="bi bi-grid-3x3-gap-fill fs-4"></i>{" "}
+                  <span className="fs-6 fw-light m-0 mb-1 d-block ms-2">
+                    per le aziende <i className="bi bi-caret-down-fill fs-6"></i>
+                  </span>
+                </div>
               </Button>
 
               <Offcanvas className="mt-canvas" show={show} onHide={() => handleClose()} placement="end" name="end">
@@ -210,7 +214,7 @@ const MyNavbar = () => {
                   </Card>
                 </Offcanvas.Body>
               </Offcanvas>
-              <Nav.Link className="premium align-items-center">Try Premium For Free</Nav.Link>
+              <Nav.Link className="premium p-0 mt-3 text-start">Prova Premium gratis</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

@@ -100,7 +100,7 @@ function HeroProfile() {
                       <Link to="/">
                         <Button
                           variant="primary"
-                          className="text-light border rounded-5 border border-primary"
+                          className="text-light border rounded-5 border border-primary d-lg-inline-block"
                           style={{ fontWeight: "500" }}
                         >
                           Disponibile per
@@ -109,7 +109,7 @@ function HeroProfile() {
 
                       <Link to="/">
                         <Button
-                          className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz"
+                          className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz d-lg-inline-block"
                           style={{ fontWeight: "500" }}
                         >
                           Aggiungi sezione del profilo
@@ -118,10 +118,16 @@ function HeroProfile() {
 
                       <Link to="/">
                         <Button
-                          className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2"
+                          className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2 d-none d-lg-inline-block"
                           style={{ fontWeight: "500" }}
                         >
                           Altro
+                        </Button>
+                        <Button
+                          className="bg-light border rounded-5 text-secondary border border-dark btnQui d-lg-none"
+                          style={{ fontWeight: "500" }}
+                        >
+                          ...
                         </Button>
                       </Link>
                     </Col>
@@ -152,7 +158,7 @@ function HeroProfile() {
                 </Col>
 
                 <Col
-                  className="mt-4 p-3 border border-1"
+                  className="mt-4 p-3 border border-1 d-none d-sm-inline-block"
                   style={{
                     width: "150px",
                     backgroundColor: "transparent",

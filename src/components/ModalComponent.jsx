@@ -10,8 +10,8 @@ const ModalComponent = ({ showModal, setShowModal }) => {
 
   return (
     <>
-      <Button onClick={handleShow}>
-        <Pencil />
+      <Button className="bg-light border-light" onClick={handleShow}>
+        <Pencil className="text-black" />
       </Button>
       <Modal show={show} onHide={handleClose} className="mt-sidebar">
         <Modal.Header closeButton>

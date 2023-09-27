@@ -61,7 +61,7 @@ const MyExperience = () => {
                 </div>
                 <div className="grow-1">
                   <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    <Dropdown.Toggle variant="none" id="dropdown-basic">
                       <Pencil />
                     </Dropdown.Toggle>
 

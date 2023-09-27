@@ -141,6 +141,9 @@ a {
 .fs-7 {
   font-size: 0.7rem;
 }
+.dropdown-toggle::after {
+  display: none;
+}
 
 @media screen and (max-width: 750px) {
   #sidebar {
