@@ -154,31 +154,47 @@ a {
   height: 265px;
   background-color: #9300ffb3;
   border-radius: 25px;
+  animation: blink 1.2s linear infinite;
 }
 
 .div-title-nick {
   width: 200px;
   height: 30px;
   border-radius: 25px;
+  animation: blink 1.2s linear infinite;
 }
 .div-fs-sm {
   width: 100px;
   height: 20px;
   border-radius: 25px;
+  animation: blink 1.2s linear infinite;
 }
 .div-subtitle-loader {
   width: 150px;
   height: 25px;
   border-radius: 25px;
+  animation: blink 1.2s linear infinite;
 }
 .div-subtitle-sm {
   width: 60px;
   height: 15px;
   border-radius: 25px;
+  animation: blink 1.2s linear infinite;
 }
 
 .button-loader {
   height: 25px;
   width: 100px;
   border-radius: 25px;
+  animation: blink 1.2s linear infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0; /* Imposta l'opacità a 0 all'inizio e alla fine */
+  }
+  50% {
+    opacity: 1; /* Imposta l'opacità a 1 a metà dell'animazione */
+  }
 }

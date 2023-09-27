@@ -10,6 +10,7 @@ import { Button } from "react-bootstrap";
 import MyExperience from "./MyExperience";
 import { Pencil, X } from "react-bootstrap-icons";
 import ModalComponent from "./ModalComponent";
+import HeroProfileLoaders from "./loaders/HeroProfileLoader";
 
 function HeroProfile() {
   const [show, setShow] = useState();
@@ -34,7 +35,7 @@ function HeroProfile() {
     // HERO SECTION
 
     <>
-      {profile && (
+      {profile ? (
         <>
           <Container sm={12} md={8} className="cover-image mt-sidebar ms-0 p-0 border rounded-3 bg-light">
             <Container>
@@ -178,6 +179,8 @@ function HeroProfile() {
           <ActivityHero />
           <Information />
         </>
+      ) : (
+        <HeroProfileLoaders />
       )}
     </>
   );
