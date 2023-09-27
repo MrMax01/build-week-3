@@ -3,6 +3,7 @@ export const MY_PROFILE = "MY_PROFILE";
 export const LOADING = "LOADING";
 export const ERROR = "ERROR";
 export const GET_EXPERIENCE = "GET_EXPERIENCE";
+export const UPDATED = "UPDATED";
 
 const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/";
 
@@ -83,7 +84,7 @@ export const getExperience = () => {
         dispatch({ type: GET_EXPERIENCE, payload: myExperienceFetched });
       } else {
         console.log("error");
-        alert("Errore nel reperimento dei dati personeAside ");
+        alert("Errore nel reperimento dei dati experience ");
       }
     } catch (error) {
       console.log(error);
