@@ -18,7 +18,7 @@ const PostList = () => {
       const response = await fetch(baseEndPoint, headers);
       if (response.ok) {
         const data = await response.json();
-        setPostList(data);
+        setPostList(data.reverse());
       }
     } catch (error) {
       console.log(error);

@@ -50,7 +50,7 @@ function HeroProfile() {
     <>
       {profile ? (
         <>
-          <Container sm={12} md={8} className="cover-image mt-sidebar ms-0 p-0 border rounded-3 bg-white">
+          <Container sm={12} md={8} className="cover-image mt-3 ms-0 p-0 border rounded-3 bg-white">
             <Container>
               <Row className="d-flex align-items-end">
                 <Container>

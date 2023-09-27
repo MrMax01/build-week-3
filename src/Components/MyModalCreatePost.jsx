@@ -80,7 +80,7 @@ const MyModalCreatePost = () => {
       <Button className="btn-experience" onClick={handleShow}>
         Create an Experience
       </Button>
-      <Modal show={show} onHide={handleClose} className="mt-sidebar">
+      <Modal show={show} onHide={handleClose} className="mt-3">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Modal.Header closeButton>
             <Modal.Title>

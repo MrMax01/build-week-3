@@ -15,7 +15,7 @@ const MySideBar = () => {
   return (
     <>
       {arrayPersoneAside ? (
-        <aside style={{ width: "300px" }} className="bg-white border rounded mt-sidebar ">
+        <aside className="bg-white border rounded mt-3 ">
           <div className="rounded  p-4 mb-2">
             <div className="relative d-flex justify-content-between">
               <div className="fw-bold">

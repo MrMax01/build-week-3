@@ -19,7 +19,6 @@ function App() {
           <Route path="/me" element={<Main />} />
           <Route path="/feed" element={<HomeFeed />} />
           <Route path="/profile/:profileId" element={<Main />} />
-          <Route path="/prova" element={<HeroProfileLoaders />} />
         </Routes>
         <LinkedInFooter />
       </BrowserRouter>

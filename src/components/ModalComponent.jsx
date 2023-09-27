@@ -146,7 +146,7 @@ const ModalComponent = ({ experience }) => {
           <Button onClick={handleShowPUT}>
             <Pencil />
           </Button>
-          <Modal show={show} onHide={handleClose} className="mt-sidebar">
+          <Modal show={show} onHide={handleClose} className="mt-3">
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Modal.Header closeButton>
                 <Modal.Title>
@@ -199,10 +199,10 @@ const ModalComponent = ({ experience }) => {
         </>
       ) : (
         <>
-          <Button className="bg-light border-light" onClick={handleShow}>
+          <Button className="bg-white border-white btn-profile" onClick={handleShow}>
             <Pencil className="text-black" />
           </Button>
-          <Modal show={show} onHide={handleClose} size="lg" className="mt-sidebar mx-aut">
+          <Modal show={show} onHide={handleClose} size="lg" className="mt-3 ">
             <div className="border border-dark border-2 rounded-2 m-1">
               <Modal.Header closeButton>
                 <Modal.Title style={{ fontWeight: "400" }}>Modifica presentazione</Modal.Title>

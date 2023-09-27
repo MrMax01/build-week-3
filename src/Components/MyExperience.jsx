@@ -76,11 +76,11 @@ const MyExperience = () => {
                 <div className="grow-1 ">
                   <div>
                     <Dropdown>
-                      <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      <Dropdown.Toggle variant="none" id="dropdown-basic">
                         <Pencil />
                       </Dropdown.Toggle>
 
-                      <Dropdown.Menu>
+                      <Dropdown.Menu style={{ minWidth: "0" }}>
                         <Dropdown.Item onClick={() => handleElimina(experience._id)}>
                           <Button className="bg-danger">
                             <Trash />
