@@ -12,7 +12,7 @@ code {
   margin: 0 auto;
 }
 .navbarContainer {
-  position: fixed;
+  position: sticky;
   top: 0;
   background: white;
   z-index: 10000;
@@ -92,7 +92,7 @@ code {
 }
 
 .addPhoto {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .addPhoto .modal-content {
   width: 744px;
@@ -102,6 +102,31 @@ code {
 }
 .addPhoto .modal-content .modal-body {
   justify-content: center;
+}
+.postModal {
+  margin-top: 100px;
+}
+.postModal .modal-content {
+  width: 744px;
+}
+.postModal .modal-title {
+  font-size: 1.2rem;
+  width: 500px;
+}
+.postModal small {
+  font-size: 1rem;
+}
+.postModal .modal-body {
+  vertical-align: top;
+}
+.postTitle {
+  font-size: small;
+}
+
+.homeFeed {
+  width: 1128px;
+  margin: 0 auto;
+  margin-top: 25px !important;
 }
 
 @media screen and (max-width: 1150px) {

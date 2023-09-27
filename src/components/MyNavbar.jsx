@@ -36,7 +36,11 @@ const MyNavbar = () => {
     return (
       <Container fluid className="navbarContainer">
         <Navbar expand="sm" variant="light" className="py-0">
-          <Navbar.Brand>
+          <Navbar.Brand
+            onClick={() => {
+              navigation("/feed");
+            }}
+          >
             <img alt="logo" src={logo} height={41} />
           </Navbar.Brand>
 
@@ -52,7 +56,11 @@ const MyNavbar = () => {
 
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav className="text-center">
-              <Nav.Link>
+              <Nav.Link
+                onClick={() => {
+                  navigation("/feed");
+                }}
+              >
                 <div>
                   <div>
                     <i className="bi bi-house-fill"></i>
