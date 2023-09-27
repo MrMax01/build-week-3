@@ -78,7 +78,7 @@ const ModalComponent = ({ experience }, { createPost }) => {
       );
       if (response.ok) {
         handleClose();
-        dispatch({ type: "UPDATED", payload: [role, company, description, city, start, end] });
+        // dispatch({ type: "UPDATED", payload: [role, company, description, city, start, end] });
       }
     } catch (error) {
       console.log(error);

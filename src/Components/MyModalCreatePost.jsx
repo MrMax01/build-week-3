@@ -48,7 +48,7 @@ const MyModalCreatePost = () => {
 
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" + idProfile._id + "/experiences/",
+        "https://striveschool-api.herokuapp.com/api/profile/" + idProfile._id + "/experiences",
         {
           method: "POST",
           body: JSON.stringify({
