@@ -109,7 +109,7 @@ const MyNavbar = () => {
                   </>
                 }
                 id="dropdown"
-                className="dropNav profileDrop"
+                className="dropNav profileDrop py-2"
               >
                 <div className="dropdownSizesControl">
                   <NavDropdown.Item>
