@@ -1,5 +1,6 @@
 export const SELECT_PROFILE = "SELECT_PROFILE";
 export const MY_PROFILE = "MY_PROFILE";
+export const UPDATE_PROFILE = "UPDATE_PROFILE";
 export const LOADING = "LOADING";
 export const ERROR = "ERROR";
 export const GET_EXPERIENCE = "GET_EXPERIENCE";
@@ -88,5 +89,12 @@ export const getExperience = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+export const updateProfile = (newProfileData) => {
+  return {
+    type: UPDATE_PROFILE,
+    payload: newProfileData,
   };
 };

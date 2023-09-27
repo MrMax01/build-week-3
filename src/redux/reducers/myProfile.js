@@ -1,4 +1,4 @@
-import { MY_PROFILE } from "../actions";
+import { MY_PROFILE, UPDATE_PROFILE } from "../actions";
 
 const initialState = {
   myContent: null,
@@ -10,6 +10,13 @@ const myProfileReducer = (state = initialState, action) => {
       return {
         myContent: action.payload,
       };
+
+    case UPDATE_PROFILE:
+      return {
+        ...state,
+        ...action.payload,
+      };
+
     default:
       return state;
   }
