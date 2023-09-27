@@ -17,36 +17,54 @@ a {
   color: rgb(0, 98, 255);
   text-decoration: underline;
 }
-.bottoneSelezionabile {
-  color: grey;
-}
 
 .btnQuiz:hover {
   border: 2px solid #0b5ed7 !important;
   background-color: #0b5dd729 !important;
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 4px;
   padding-left: 11px;
-  padding-right: 11px;
+  padding-right: 10.8px;
 }
 
 .btnQuiz2:hover {
   border: 2px solid black !important;
-  background-color: rgba(0, 0, 0, 0.098) !important;
+  background-color: rgba(0, 0, 0, 0.041) !important;
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 4px;
   padding-left: 11px;
-  padding-right: 11px;
+  padding-right: 12px;
+}
+
+.btn-profile {
+  border-radius: 100%;
+  padding-inline: 11px;
+  padding-bottom: 9px;
+}
+
+.btn-profile:hover {
+  background-color: rgba(128, 128, 128, 0.203) !important;
+}
+
+.btn-info:hover {
+  border-radius: 100%;
+  background-color: rgba(128, 128, 128, 0.203);
 }
 
 .bottoneSelezionabile:hover {
-  border: 3px solid;
-  border-color: black;
+  border: 2px solid !important;
+  border-color: black !important;
+  background-color: rgba(128, 128, 128, 0.203) !important;
+  padding-block: 3px !important;
 }
 /* LinkedinFooter */
 .nav-link:hover {
-  color: blue;
-  text-decoration: underline;
+  color: blue !important;
+  text-decoration: underline !important;
+}
+
+.nav-link3:hover {
+  text-decoration: underline !important;
 }
 
 #nav-dropdown {

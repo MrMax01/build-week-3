@@ -1,54 +1,168 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
-import { Pencil } from "react-bootstrap-icons";
+import { InfoSquareFill, Pencil } from "react-bootstrap-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProfile } from "../redux/actions";
+import { fetchProfile } from "../redux/actions"; // Assicurati di importare fetchProfile
+import { useParams } from "react-router";
 
 const ModalComponent = ({ showModal, setShowModal }) => {
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const { profileId } = useParams();
+
+  const profile = useSelector((state) => state.profile.content);
+  const myProfile = useSelector((state) => state.myProfile.myContent);
+
+  const [name, setName] = useState(profile.name);
+  const [surname, setSurname] = useState(profile.surname);
+  const [area, setArea] = useState(profile.area);
+
+  useEffect(() => {
+    if (profileId) {
+      dispatch(fetchProfile(profileId));
+    } else {
+      dispatch(fetchProfile());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [profileId, myProfile]);
+
+  const handleSave = async () => {
+    const updatedProfileData = {
+      name,
+      surname,
+      area,
+    };
+
+    try {
+      const response = await fetch("https://striveschool-api.herokuapp.com/api/profile/", {
+        method: "PUT",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedProfileData),
+      });
+
+      if (response.ok) {
+        const updatedProfile = await response.json();
+        dispatch(updateProfile(updatedProfile));
+        handleClose();
+      } else {
+        console.error("Errore nella richiesta PUT:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Si è verificato un errore durante la richiesta PUT:", error);
+    }
+  };
 
   return (
     <>
       <Button className="bg-light border-light" onClick={handleShow}>
         <Pencil className="text-black" />
       </Button>
-      <Modal show={show} onHide={handleClose} className="mt-sidebar">
-        <Modal.Header closeButton>
-          <Modal.Title>
-            <p>indica che è obbligatorio</p>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form.Label htmlFor="basic-url">Nome</Form.Label>
-          <InputGroup className="mb-3">
-            <Form.Control id="basic-url" aria-describedby="basic-addon3" />
-          </InputGroup>
-          <Form.Label htmlFor="basic-url">Cognome*</Form.Label>
-          <InputGroup className="mb-3">
-            <Form.Control id="basic-url" aria-describedby="basic-addon3" />
-          </InputGroup>
-          <Form.Label htmlFor="basic-url">Nome aggiuntivo</Form.Label>
-          <InputGroup className="mb-3">
-            <Form.Control id="basic-url" aria-describedby="basic-addon3" />
-          </InputGroup>
-          <Form.Label htmlFor="basic-url">Inserisci pronomi personali</Form.Label>
-          <InputGroup className="mb-3">
-            <Form.Control id="basic-url" aria-describedby="basic-addon3" />
-            <Form.Label htmlFor="basic-url">
-              Indica i pronomi di genere che vuoi che gli altri usino per riferirsi a te.
+      <Modal show={show} onHide={handleClose} size="lg" className="mt-sidebar mx-aut">
+        <div className="border border-dark border-2 rounded-2 m-1">
+          <Modal.Header closeButton>
+            <Modal.Title style={{ fontWeight: "400" }}>Modifica presentazione</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body style={{ fontSize: "0.9rem" }}>
+            <p className="text-secondary">*Indica che è obbligatorio</p>
+            <Form.Label htmlFor="name" className="text-secondary mb-0">
+              Nome*
             </Form.Label>
-          </InputGroup>
-          <Form.Label htmlFor="basic-url">Sommario</Form.Label>
-          <InputGroup className="mb-3">
-            <Form.Control id="basic-url" aria-describedby="basic-addon3" />
-          </InputGroup>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+            <InputGroup className="mb-3">
+              <Form.Control
+                id="name"
+                size="sm"
+                className="border border-dark"
+                aria-describedby="basic-addon3"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </InputGroup>
+            <Form.Label htmlFor="surname" className="text-secondary mb-0">
+              Cognome*
+            </Form.Label>
+            <InputGroup className="mb-3">
+              <Form.Control
+                id="surname"
+                size="sm"
+                className="border border-dark"
+                aria-describedby="basic-addon3"
+                value={surname}
+                onChange={(e) => setSurname(e.target.value)}
+                required
+              />
+            </InputGroup>
+            <Form.Label htmlFor="basic-url" className="text-secondary mb-0">
+              Nome aggiuntivo
+            </Form.Label>
+            <InputGroup className="mb-3">
+              <Form.Control id="basic-url" size="sm" aria-describedby="basic-addon3" className="border border-dark" />
+            </InputGroup>
+
+            <p className="mb-1 text-secondary">Pronuncia del nome</p>
+            <div className="d-flex align-items-top">
+              <div>
+                <InfoSquareFill className="me-1" style={{ color: "#56687A" }} />
+              </div>
+              <div>
+                <p style={{ color: "#56687A" }}>Può essere aggiunta solo usando la nostra app per dispositivi mobili</p>
+              </div>
+            </div>
+
+            <Form.Label htmlFor="basic-url" className="text-secondary mb-0">
+              Inserisci pronomi personali
+            </Form.Label>
+            <InputGroup className="mb-3">
+              <Form.Control
+                id="optional-name"
+                size="sm"
+                aria-describedby="basic-addon3"
+                className="border border-dark"
+              />
+              <Form.Label htmlFor="basic-url" className="w-100 mb-0"></Form.Label>
+              <p className="text-secondary">
+                {" "}
+                Indica i pronomi di genere che vuoi che gli altri usino per riferirsi a te.
+              </p>
+            </InputGroup>
+
+            <Form.Label htmlFor="area" className="text-secondary mb-0">
+              Area geografica
+            </Form.Label>
+            <InputGroup className="mb-3">
+              <Form.Control
+                id="area"
+                size="sm"
+                aria-describedby="basic-addon3"
+                className="border border-dark"
+                value={area}
+                onChange={(e) => setArea(e.target.value)}
+                required
+              />
+            </InputGroup>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="primary"
+              className="rounded-5 py-1 px-3"
+              style={{ fontWeight: "500" }}
+              type="submit"
+              onClick={handleSave}
+            >
+              Salva
+            </Button>
+          </Modal.Footer>
+        </div>
       </Modal>
     </>
   );

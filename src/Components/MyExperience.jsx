@@ -35,9 +35,9 @@ const MyExperience = () => {
 
   return (
     <Container className="mt-2 px-0">
-      <Card>
+      <Card className="px-2">
         <Card.Header className="border-bottom-0 bg-white">
-          <h5 className="mb-0">Experience</h5>
+          <h5 className="mb-0">Esperienze</h5>
         </Card.Header>
         <ListGroup variant="flush" className="p-2">
           {arrayExperience &&

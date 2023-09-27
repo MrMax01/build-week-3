@@ -3,7 +3,7 @@ import { Card, Container, ListGroup } from "react-bootstrap";
 const ActivityHero = () => {
   return (
     <Container className="mt-2 px-0">
-      <Card>
+      <Card className="px-2">
         <Card.Header className="border-bottom-0 bg-white">
           <h5 className="mb-0">Attività</h5>
           <div className="fw-bold fs-6 text-primary">0 follower</div>
@@ -17,8 +17,8 @@ const ActivityHero = () => {
             </div>
           </ListGroup.Item>
         </ListGroup>
-        <Card.Footer className="text-center fw-bold text-secondary bg-white">
-          Mostra tutte le Attività<i className="bi bi-arrow-right"></i>
+        <Card.Footer className="text-center text-secondary bg-white" style={{ fontWeight: "500" }}>
+          Mostra tutte le Attività <i className="bi bi-arrow-right"></i>
         </Card.Footer>
       </Card>
     </Container>
