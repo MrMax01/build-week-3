@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { Pencil } from "react-bootstrap-icons";
+
 import { useDispatch, useSelector } from "react-redux";
 
 const MyModalCreatePost = () => {
