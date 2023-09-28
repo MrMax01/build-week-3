@@ -63,41 +63,41 @@ const MyNavbar = () => {
               >
                 <div>
                   <div>
-                    <i className="bi bi-house-fill"></i>
+                    <i className="bi bi-house-fill mt-2"></i>
                   </div>
-                  <span>Home</span>
+                  <span className="mt-1">Home</span>
                 </div>
               </Nav.Link>
               <Nav.Link>
                 <div>
                   <div>
-                    <i className="bi bi-people-fill"></i>
+                    <i className="bi bi-people-fill mt-2"></i>
                   </div>
-                  <span>Rete</span>
+                  <span className="mt-1">Rete</span>
                 </div>
               </Nav.Link>
               <Nav.Link>
                 <div>
                   <div>
-                    <i className="bi bi-briefcase-fill"></i>
+                    <i className="bi bi-briefcase-fill mt-2"></i>
                   </div>
-                  <span>Lavoro</span>
+                  <span className="mt-1">Lavoro</span>
                 </div>
               </Nav.Link>
               <Nav.Link>
                 <div>
                   <div>
-                    <i className="bi bi-chat-dots-fill"></i>
+                    <i className="bi bi-chat-dots-fill mt-2"></i>
                   </div>
-                  <span>Messagistica</span>
+                  <span className="mt-1">Messagistica</span>
                 </div>
               </Nav.Link>
               <Nav.Link>
                 <div>
                   <div>
-                    <i className="bi bi-bell-fill"></i>
+                    <i className="bi bi-bell-fill mt-2"></i>
                   </div>
-                  <span>Notifiche</span>
+                  <span className="mt-1">Notifiche</span>
                 </div>
               </Nav.Link>
               <NavDropdown
@@ -156,11 +156,11 @@ const MyNavbar = () => {
               </NavDropdown>
 
               <Button variant="navOffcanvas" className="border border-0 p-0" onClick={() => handleShow()}>
-                <div className=" border-start">
-                  <i className="bi bi-grid-3x3-gap-fill fs-4"></i>{" "}
-                  <span className="fs-6 fw-light m-0 mb-1 d-block ms-2">
-                    per le aziende <i className="bi bi-caret-down-fill fs-6"></i>
-                  </span>
+                <div className=" border-start mt-2 mb-2">
+                  <i className="bi bi-grid-3x3-gap-fill fs-5 "></i>{" "}
+                  <p className="fs-8 fw-light m-0  d-block ms-2">
+                    per le aziende <i className="bi bi-caret-down-fill fs-8"></i>
+                  </p>
                 </div>
               </Button>
 

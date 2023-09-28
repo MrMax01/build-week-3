@@ -134,10 +134,16 @@ function HeroProfile() {
 
                       <Link to="/">
                         <Button
-                          className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz d-lg-inline-block"
+                          className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz d-none  d-lg-inline-block"
                           style={{ fontWeight: "500" }}
                         >
                           Aggiungi sezione del profilo
+                        </Button>
+                        <Button
+                          className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz d-lg-none"
+                          style={{ fontWeight: "500" }}
+                        >
+                          Aggiungi se...
                         </Button>
                       </Link>
 

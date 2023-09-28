@@ -124,6 +124,12 @@ code {
   margin: 0 auto;
   margin-top: 25px !important;
 }
+.fs-8 {
+  font-size: 0.8rem !important;
+}
+.mt-6 {
+  margin-top: 5px !important;
+}
 
 @media screen and (max-width: 1150px) {
   .navbar {

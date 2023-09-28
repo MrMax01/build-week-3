@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { Pencil } from "react-bootstrap-icons";
+import { Pencil, Plus } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 
 const MyModalCreatePost = () => {
@@ -77,8 +77,8 @@ const MyModalCreatePost = () => {
 
   return (
     <>
-      <Button className="btn-experience" onClick={handleShow}>
-        Create an Experience
+      <Button className="btn-experience border-white text-black" onClick={handleShow}>
+        {/* Create an Experience */} <Plus className="fs-3" />
       </Button>
       <Modal show={show} onHide={handleClose} className="mt-3">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>

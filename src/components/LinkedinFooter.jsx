@@ -9,10 +9,10 @@ const LinkedInFooter = () => {
           <Col sm={12} md={6} lg={6}>
             <Row style={{ fontWeight: "500" }}>
               <Col sm={4} md={6} lg={4}>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Informazioni
                 </NavLink>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Linee guida della community
                 </NavLink>
                 <Nav className="text-secondary">
@@ -54,38 +54,38 @@ const LinkedInFooter = () => {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Sales Solutions
                 </NavLink>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Centro sicurezza
                 </NavLink>
               </Col>
               <Col sm={4} md={6} lg={4}>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Accessibilità
                 </NavLink>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Carriera
                 </NavLink>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Opzioni per gli annunci pubblicitari
                 </NavLink>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Mobile
                 </NavLink>
               </Col>
               <Col sm={4} lg={4}>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Talent Solutions
                 </NavLink>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Soluzioni di marketing
                 </NavLink>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Pubblicità
                 </NavLink>
-                <NavLink href="#" className="mb-2 nav-link w-100">
+                <NavLink href="#" className="mb-2 nav-link2 w-100">
                   Piccole imprese
                 </NavLink>
               </Col>
@@ -97,7 +97,7 @@ const LinkedInFooter = () => {
                 <div className="mb-2 d-flex">
                   <QuestionCircleFill style={{ color: "#3D3D3C", fontSize: "1.2rem" }} className="mt-1 me-1" />
                   <div>
-                    <NavLink href="#" style={{ fontSize: "0.9rem", fontWeight: "500" }} className="mt-0 nav-link">
+                    <NavLink href="#" style={{ fontSize: "0.9rem", fontWeight: "500" }} className="mt-0 nav-link2">
                       Domande?
                     </NavLink>
                     <p style={{ fontSize: "0.8rem" }} className="mb-1">
@@ -108,7 +108,7 @@ const LinkedInFooter = () => {
                 <div className="mb-2 d-flex">
                   <GearFill style={{ color: "#3D3D3C", fontSize: "1.2rem" }} className="mt-1 me-1" />
                   <div>
-                    <NavLink href="#" style={{ fontSize: "0.9rem", fontWeight: "500" }} className="nav-link w-100">
+                    <NavLink href="#" style={{ fontSize: "0.9rem", fontWeight: "500" }} className="nav-link2 w-100">
                       Gestisci il tuo account e la tua privacy
                     </NavLink>
                     <p style={{ fontSize: "0.8rem" }} className="mb-1">
@@ -119,7 +119,7 @@ const LinkedInFooter = () => {
                 <div className="mb-2 d-flex">
                   <ShieldShaded style={{ color: "#3D3D3C", fontSize: "1.2rem" }} className="mt-1 me-1" />
                   <div>
-                    <NavLink href="#" style={{ fontSize: "0.9rem", fontWeight: "500" }} className="nav-link w-100">
+                    <NavLink href="#" style={{ fontSize: "0.9rem", fontWeight: "500" }} className="nav-link2 w-100">
                       Trasparenza sui contenuti consigliati
                     </NavLink>
                     <p style={{ fontSize: "0.8rem" }} className="mb-1">
