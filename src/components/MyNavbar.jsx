@@ -34,7 +34,7 @@ const MyNavbar = () => {
     return <>LOADING...</>;
   } else {
     return (
-      <Container fluid className="navbarContainer">
+      <Container fluid className="navbarContainer border-bottom">
         <Navbar expand="sm" variant="light" className="py-0">
           <Navbar.Brand
             onClick={() => {

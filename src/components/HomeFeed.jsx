@@ -1,5 +1,4 @@
 import { Col, Container, Row } from "react-bootstrap";
-import PostFeed from "./PostFeed";
 import { useSelector } from "react-redux";
 import PostList from "./PostList";
 import ProfileSidebar from "./ProfileSidebar";
@@ -17,7 +16,6 @@ const HomeFeed = () => {
             <ProfileSidebar />
           </Col>
           <Col xs={6}>
-            <PostFeed />
             <PostList />
           </Col>
           <Col xs={3}></Col>

@@ -6,7 +6,7 @@ const ProfileSidebar = () => {
 
   return (
     <Container className="w-100">
-      <aside className="bg-light rounded">
+      <aside className="bg-light rounded border">
         <div className="p-3 border-bottom">
           <div className="d-flex p-3 justify-content-center">
             <img src={myProfile.image} alt="profile-img" width={100} height={100} className="rounded-circle" />
