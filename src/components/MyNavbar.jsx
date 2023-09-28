@@ -76,7 +76,11 @@ const MyNavbar = () => {
                   <span>Rete</span>
                 </div>
               </Nav.Link>
-              <Nav.Link>
+              <Nav.Link
+                onClick={() => {
+                  navigation("/jobs");
+                }}
+              >
                 <div>
                   <div>
                     <i className="bi bi-briefcase-fill"></i>
