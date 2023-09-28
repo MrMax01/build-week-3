@@ -214,6 +214,9 @@ a {
   border-radius: 25px;
   animation: blink 1.2s linear infinite;
 }
+.text-col {
+  color: #9c9c99 !important;
+}
 
 @keyframes blink {
   0%,

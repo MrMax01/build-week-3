@@ -1,15 +1,4 @@
-import {
-  ButtonGroup,
-  Col,
-  Container,
-  Dropdown,
-  DropdownButton,
-  ListGroup,
-  Nav,
-  NavDropdown,
-  Navbar,
-  Row,
-} from "react-bootstrap";
+import { Card, Col, Container, Dropdown, ListGroup, Row } from "react-bootstrap";
 
 const JobsSidebar = () => {
   return (
@@ -24,32 +13,29 @@ const JobsSidebar = () => {
         </ListGroup>
       </Container>
 
-      <Container>
+      <Container className="border-1 rounded d-lg-none">
         <Row>
-          <Col xs={12} className="d-lg-none">
-            <Navbar className="bg-body-tertiary">
-              <Navbar.Brand href="#home">Le mie offerte di lavoro</Navbar.Brand>
+          <Col xs={12} className=" p-0 ">
+            <Card style={{ width: "100%" }} className="rounded bg-light ">
+              <Card.Body className="d-flex justify-content-between ">
+                <Card.Title className="align-self-center">Le mie offerte di lavoro</Card.Title>
+                <Dropdown data-bs-theme="dark" drop="left">
+                  <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
+                    Altro
+                  </Dropdown.Toggle>
 
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ms-auto">
-                  <Dropdown data-bs-theme="dark">
-                    <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-                      Altro
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1" active>
-                        Action
-                      </Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                      <Dropdown.Divider />
-                      <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </Nav>
-              </Navbar.Collapse>
-            </Navbar>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1" active>
+                      Action
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
       </Container>
