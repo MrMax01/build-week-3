@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import PostListLoader from "./loaders/PostListLoader";
 
 const PostList = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [postList, setPostList] = useState([]);
   const baseEndPoint = "https://striveschool-api.herokuapp.com/api/posts";
 
@@ -13,7 +13,6 @@ const PostList = () => {
     },
   };
   const fetchPosts = async () => {
-    setIsLoading(true);
     try {
       const response = await fetch(baseEndPoint, headers);
       if (response.ok) {
@@ -23,7 +22,6 @@ const PostList = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false);
       console.log(postList);
     }
   };
@@ -32,12 +30,10 @@ const PostList = () => {
     fetchPosts();
   }, []);
 
-  if (isLoading) {
-    return <>Loading</>;
-  } else {
-    return (
-      <>
-        {postList.slice(0, 20).map((post) => {
+  return (
+    <>
+      {postList.length > 0 ? (
+        postList.slice(0, 20).map((post) => {
           return (
             <Row key={post._id} className="my-2 ">
               <Card style={{ width: "100%" }} className="rounded bg-light">
@@ -66,10 +62,12 @@ const PostList = () => {
               </Card>
             </Row>
           );
-        })}
-      </>
-    );
-  }
+        })
+      ) : (
+        <PostListLoader />
+      )}
+    </>
+  );
 };
 
 export default PostList;
