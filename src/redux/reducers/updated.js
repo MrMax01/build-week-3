@@ -1,17 +1,20 @@
-import { GET_EXPERIENCE } from "../actions";
+import { UPDATED } from "../actions";
 
 const initialState = {
   content: null,
 };
-const experienceReducer = (state = initialState, action) => {
+
+const updatedReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_EXPERIENCE:
+    case UPDATED:
       return {
+        ...state,
         content: action.payload,
       };
+
     default:
       return state;
   }
 };
 
-export default experienceReducer;
+export default updatedReducer;

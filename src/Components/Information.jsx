@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const Information = () => {
   const profile = useSelector((state) => state.profile.content);
   return (
-    <Container className="mt-2 p-4 border border-1 rounded-3 bg-light">
+    <Container className="mt-2 p-4 border border-1 rounded-3 bg-white">
       <Row>
         <Col sm={8} md={12}>
           <div className="d-flex justify-content-between">

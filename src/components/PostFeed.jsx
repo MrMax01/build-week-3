@@ -16,6 +16,7 @@ const PostFeed = () => {
 
     console.log(postText.current.value);
     dispatch(postTextPost(postText.current.value));
+    handleClose();
   };
 
   return (

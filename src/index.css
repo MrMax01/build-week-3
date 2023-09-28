@@ -15,7 +15,7 @@ code {
   position: sticky;
   top: 0;
   background: white;
-  z-index: 10000;
+  z-index: 1;
 }
 .nav-link,
 .nav-item {
@@ -52,10 +52,6 @@ code {
   height: 100%;
 }
 
-.profileDrop a {
-  border-right: 1px solid lightgray;
-}
-
 .btn-navOffcanvas {
   display: flex !important;
   flex-direction: column;
@@ -68,10 +64,10 @@ code {
 
 .premium {
   display: flex;
-  color: gold;
-  width: 120px;
+  color: rgb(168, 131, 10) !important;
+  width: 200px;
   text-decoration: underline !important;
-  font-size: 1rem;
+  font-size: 0.9rem !important;
 }
 .dropdownSizesControl {
   width: 400px;
