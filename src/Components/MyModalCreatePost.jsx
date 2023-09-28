@@ -107,12 +107,12 @@ const MyModalCreatePost = () => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="validationCustom03">
               <Form.Label>Start</Form.Label>
-              <Form.Control type="text" onChange={handleChangeStart} />
+              <Form.Control type="date" onChange={handleChangeStart} />
               <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3" controlId="validationCustom04">
               <Form.Label>End</Form.Label>
-              <Form.Control as="textarea" onChange={handleChangeEnd} />
+              <Form.Control type="date" onChange={handleChangeEnd} />
               <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3" controlId="validationCustom05">
