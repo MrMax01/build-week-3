@@ -60,56 +60,45 @@ const MyNavbar = () => {
             >
               <div>
                 <div>
-                  <div>
-                    <i className="bi bi-house-fill mt-2"></i>
-                  </div>
-                  <span className="mt-1">Home</span>
+                  <i className="bi bi-house-fill mt-2"></i>
                 </div>
-                <span>Home</span>
+                <span className="mt-1">Home</span>
               </div>
             </Nav.Link>
             <Nav.Link>
               <div>
                 <div>
-                  <div>
-                    <i className="bi bi-people-fill mt-2"></i>
-                  </div>
-                  <span className="mt-1">Rete</span>
+                  <i className="bi bi-people-fill mt-2"></i>
                 </div>
-                <span>Rete</span>
+                <span className="mt-1">Rete</span>
+              </div>
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigation("/jobs");
+              }}
+            >
+              <div>
+                <div>
+                  <i className="bi bi-briefcase-fill mt-2"></i>
+                </div>
+                <span className="mt-1">Lavoro</span>
               </div>
             </Nav.Link>
             <Nav.Link>
               <div>
                 <div>
-                  <div>
-                    <i className="bi bi-briefcase-fill mt-2"></i>
-                  </div>
-                  <span className="mt-1">Lavoro</span>
+                  <i className="bi bi-chat-dots-fill mt-2"></i>
                 </div>
-                <span>Lavoro</span>
+                <span className="mt-1">Messagistica</span>
               </div>
             </Nav.Link>
             <Nav.Link>
               <div>
                 <div>
-                  <div>
-                    <i className="bi bi-chat-dots-fill mt-2"></i>
-                  </div>
-                  <span className="mt-1">Messagistica</span>
+                  <i className="bi bi-bell-fill mt-2"></i>
                 </div>
-                <span>Messagistica</span>
-              </div>
-            </Nav.Link>
-            <Nav.Link>
-              <div>
-                <div>
-                  <div>
-                    <i className="bi bi-bell-fill mt-2"></i>
-                  </div>
-                  <span className="mt-1">Notifiche</span>
-                </div>
-                <span>Notifiche</span>
+                <span className="mt-1">Notifiche</span>
               </div>
             </Nav.Link>
             <NavDropdown
