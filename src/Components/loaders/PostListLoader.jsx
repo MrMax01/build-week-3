@@ -3,9 +3,13 @@ import { Card, Col, Row } from "react-bootstrap";
 const PostListLoader = () => {
   return (
     <Row className="my-2 ">
-      {Array.from({ length: 5 }, () => {
+      {Array.from({ length: 5 }, (index) => {
         return (
-          <Card style={{ width: "100%", animation: "blink 1.2s linear infinite" }} className="rounded bg-light mb-3">
+          <Card
+            kay={"xcszcsdxcs" + index}
+            style={{ width: "100%", animation: "blink 1.2s linear infinite" }}
+            className="rounded bg-light mb-3"
+          >
             <Card.Body>
               <Card.Title>
                 <Row>
