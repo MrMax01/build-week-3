@@ -52,6 +52,15 @@ const MyNavbar = () => {
               <Form.Control placeholder="Search" aria-label="Search" aria-describedby="search" />
             </InputGroup>
           </Form>
+          {/* <Form>
+            <InputGroup>
+              <InputGroup.Text id="searchMD">
+                <i className="bi bi-search"></i>
+              </InputGroup.Text>
+
+              <Form.Control className="d-none" placeholder="Search" aria-label="Search" aria-describedby="search" />
+            </InputGroup>
+          </Form> */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">

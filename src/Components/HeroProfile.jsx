@@ -39,7 +39,7 @@ function HeroProfile() {
     event.preventDefault();
     const form = document.querySelector("#formElement");
     const formData = new FormData(form);
-    console.log(formData);
+    console.dir(form);
 
     dispatch(postPictureAction(formData));
   };

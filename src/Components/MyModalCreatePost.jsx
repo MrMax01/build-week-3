@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const MyModalCreatePost = () => {
   const dispatch = useDispatch();
@@ -48,7 +49,7 @@ const MyModalCreatePost = () => {
 
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/651141923752a80014568769/experiences/",
+        "https://striveschool-api.herokuapp.com/api/profile/ " + idProfile._id + "/experiences/",
         {
           method: "POST",
           body: JSON.stringify({
@@ -77,9 +78,15 @@ const MyModalCreatePost = () => {
 
   return (
     <>
-      <Button className="btn-experience" onClick={handleShow}>
-        Create an Experience
-      </Button>
+      {idProfile._id === "651141923752a80014568769" ? (
+        <Button className="btn-experience" onClick={handleShow}>
+          Create an Experience
+        </Button>
+      ) : (
+        <Button style={{ display: "none" }} className="btn-experience" onClick={handleShow}>
+          Create an Experience
+        </Button>
+      )}
       <Modal show={show} onHide={handleClose} className="mt-3">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Modal.Header closeButton>

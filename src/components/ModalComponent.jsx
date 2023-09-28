@@ -45,7 +45,6 @@ const ModalComponent = ({ experience }) => {
     setShow(true);
     setCity(experience.area);
     setRole(experience.role);
-    setEnd(experience.endDate);
     setStart(experience.startDate);
     setCompany(experience.company);
     setDescription(experience.description);
@@ -143,9 +142,11 @@ const ModalComponent = ({ experience }) => {
     <>
       {experience ? (
         <>
-          <Button onClick={handleShowPUT}>
-            <Pencil />
-          </Button>
+          {
+            <Button onClick={handleShowPUT}>
+              <Pencil />
+            </Button>
+          }
           <Modal show={show} onHide={handleClose} className="mt-3">
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Modal.Header closeButton>
