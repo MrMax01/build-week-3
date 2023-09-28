@@ -24,7 +24,6 @@ const MyNavbar = () => {
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   const myProfile = useSelector((state) => state.myProfile.myContent);
-  let loading = useSelector((state) => state.loading.loading);
   const navigation = useNavigate();
   useEffect(() => {
     dispatch(fetchMyProfile());
@@ -32,7 +31,7 @@ const MyNavbar = () => {
   }, []);
 
   return (
-    <Container fluid className="navbarContainer">
+    <Container fluid className="navbarContainer border-bottom">
       <Navbar expand="sm" variant="light" className="py-0">
         <Navbar.Brand
           onClick={() => {
