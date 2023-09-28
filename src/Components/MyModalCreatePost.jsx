@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { Pencil } from "react-bootstrap-icons";
-import { useDispatch, useSelector } from "react-redux";
+import { Plus } from "react-bootstrap-icons";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const MyModalCreatePost = () => {
   const dispatch = useDispatch();
   const [validated, setValidated] = useState(false);
   const [show, setShow] = useState(false);
-  const idProfile = useSelector((state) => state.profile.content);
   const [role, setRole] = useState("");
   const [company, setCompany] = useState("");
   const [start, setStart] = useState("");
@@ -80,8 +79,8 @@ const MyModalCreatePost = () => {
   return (
     <>
       {profileId === "me" && (
-        <Button className="btn-experience" onClick={handleShow}>
-          Create an Experience
+        <Button className="btn-experience border-white text-black" onClick={handleShow}>
+          <Plus className="fs-3" />
         </Button>
       )}
 
