@@ -13,14 +13,10 @@ const MyExperience = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
+    console.log("USE EFFECT MY Experience ");
     dispatch(getExperience());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [idProfile]);
-
-  useEffect(() => {
-    dispatch(getExperience());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updatedState]);
+  }, [idProfile, updatedState]);
 
   return (
     <Container className="mt-2 px-0">

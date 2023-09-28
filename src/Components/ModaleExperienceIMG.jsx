@@ -1,16 +1,11 @@
 import { Button, Dropdown, Form, Image, ListGroup, Modal } from "react-bootstrap";
 import { Pencil, Trash } from "react-bootstrap-icons";
 import ModalComponent from "./ModalComponent";
-import { useEffect, useRef, useState } from "react";
-import { GET_EXPERIENCE_SELECTED, getExperience, postPictureExperienceAction } from "../redux/actions";
+import { useRef, useState } from "react";
+import { GET_EXPERIENCE_SELECTED, postPictureExperienceAction } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const ModaleExperienceIMG = ({ experience }) => {
-  const updatedState = useSelector((state) => state.update.content);
-  useEffect(() => {
-    dispatch(getExperience());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updatedState]);
   const [imgSrc, setImgSrc] = useState(experience.image);
   const previewImg = (event) => {
     console.log(event);
