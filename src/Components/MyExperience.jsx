@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Pencil, Trash } from "react-bootstrap-icons";
 import ModalComponent from "./ModalComponent";
 import MyModalCreatePost from "./MyModalCreatePost";
+import { useParams } from "react-router-dom";
 
 const MyExperience = () => {
   const arrayExperience = useSelector((state) => state.experience.content);
   const idProfile = useSelector((state) => state.profile.content._id);
   const updatedState = useSelector((state) => state.update.content);
+  const { profileId } = useParams();
   const handleElimina = async (experience) => {
     console.log(experience);
     try {
@@ -77,7 +79,7 @@ const MyExperience = () => {
                   <div>
                     <Dropdown>
                       <Dropdown.Toggle variant="none" id="dropdown-basic">
-                        <Pencil />
+                        {profileId === "me" && <Pencil />}
                       </Dropdown.Toggle>
 
                       <Dropdown.Menu style={{ minWidth: "0" }}>

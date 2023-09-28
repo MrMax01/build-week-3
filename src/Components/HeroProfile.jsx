@@ -23,13 +23,14 @@ function HeroProfile() {
 
   useEffect(() => {
     if (profileId) {
-      console.log(profileId);
       dispatch(fetchProfile(profileId));
     } else {
       dispatch(fetchProfile());
     }
+    console.log(profileId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profileId]);
+
   const inputRef = useRef(null);
   const handleClick = () => {
     inputRef.current.click();
@@ -101,8 +102,7 @@ function HeroProfile() {
                       <h3 className="mb-0 mt-0">
                         {profile.name} {profile.surname}
                       </h3>
-
-                      <ModalComponent />
+                      {profileId === "me" && <ModalComponent />}
                     </div>
                     <p className="mb-0">{profile.title}</p>
                     <p className="mb-0 mt-3 text-secondary">
@@ -121,89 +121,139 @@ function HeroProfile() {
                     </Link>
                   </Row>
                   <Row className="mt-2 btn-hero">
-                    <Col sm={12} md={12}>
-                      <Link to="/">
-                        <Button
-                          variant="primary"
-                          className="text-light border rounded-5 border border-primary d-lg-inline-block"
-                          style={{ fontWeight: "500" }}
-                        >
-                          Disponibile per
-                        </Button>
-                      </Link>
+                    {profileId === "me" ? (
+                      <Col sm={12} md={12}>
+                        <Link to="/">
+                          <Button
+                            variant="primary"
+                            className="text-light border rounded-5 border border-primary d-lg-inline-block"
+                            style={{ fontWeight: "500" }}
+                          >
+                            Disponibile per
+                          </Button>
+                        </Link>
 
-                      <Link to="/">
-                        <Button
-                          className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz d-lg-inline-block"
-                          style={{ fontWeight: "500" }}
-                        >
-                          Aggiungi sezione del profilo
-                        </Button>
-                      </Link>
+                        <Link to="/">
+                          <Button
+                            className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz d-lg-inline-block"
+                            style={{ fontWeight: "500" }}
+                          >
+                            Aggiungi sezione del profilo
+                          </Button>
+                        </Link>
 
-                      <Link to="/">
-                        <Button
-                          className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2 d-none d-lg-inline-block"
-                          style={{ fontWeight: "500" }}
-                        >
-                          Altro
-                        </Button>
-                        <Button
-                          className="bg-light border rounded-5 text-secondary border border-dark btnQui d-lg-none"
-                          style={{ fontWeight: "500" }}
-                        >
-                          ...
-                        </Button>
-                      </Link>
-                    </Col>
+                        <Link to="/">
+                          <Button
+                            className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2 d-none d-lg-inline-block"
+                            style={{ fontWeight: "500" }}
+                          >
+                            Altro
+                          </Button>
+                          <Button
+                            className="bg-light border rounded-5 text-secondary border border-dark btnQui d-lg-none"
+                            style={{ fontWeight: "500" }}
+                          >
+                            ...
+                          </Button>
+                        </Link>
+                      </Col>
+                    ) : (
+                      <Col sm={12} md={12} className="mb-3">
+                        <Link to="/">
+                          <Button
+                            variant="primary"
+                            className="text-light border rounded-5 border border-primary d-lg-inline-block"
+                            style={{ fontWeight: "500" }}
+                          >
+                            <i class="bi bi-plus"></i>
+                            Segui
+                          </Button>
+                        </Link>
+
+                        <Link to="/">
+                          <Button
+                            className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz d-lg-inline-block"
+                            style={{ fontWeight: "500" }}
+                          >
+                            <i class="bi bi-person-fill-add"></i>
+                            Collegati
+                          </Button>
+                        </Link>
+
+                        <Link to="/">
+                          <Button
+                            className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2 d-none d-lg-inline-block"
+                            style={{ fontWeight: "500" }}
+                          >
+                            Altro
+                          </Button>
+                          <Button
+                            className="bg-light border rounded-5 text-secondary border border-dark btnQui d-lg-none"
+                            style={{ fontWeight: "500" }}
+                          >
+                            ...
+                          </Button>
+                        </Link>
+                      </Col>
+                    )}
                   </Row>
                 </Row>
               </Row>
-              <Row className="px-3 mx-0 mb-4">
-                <Col
-                  className="mt-4 p-3 me-4 py-2"
-                  style={{
-                    width: "100px",
-                    backgroundColor: "#DDE7F1",
-                    borderRadius: "20px",
-                  }}
-                >
-                  <div className="d-flex justify-content-between">
-                    <p className="mb-0" style={{ fontWeight: "500" }}>
-                      Disponibile a lavorare
-                    </p>
-                    <div>
-                      <Pencil role="button" className=" btn-info" />
+              {profileId === "me" && (
+                <Row className="px-3 mx-0 mb-4">
+                  <Col
+                    className="mt-4 p-3 me-4 py-2"
+                    style={{
+                      width: "100px",
+                      backgroundColor: "#DDE7F1",
+                      borderRadius: "20px",
+                    }}
+                  >
+                    <div className="d-flex justify-content-between">
+                      <p className="mb-0" style={{ fontWeight: "500" }}>
+                        Disponibile a lavorare
+                      </p>
+                      <div>
+                        <Pencil role="button" className="btn-info " />
+                      </div>
                     </div>
-                  </div>
-                  <p className="mb-0">Ruoli di Sviluppatore Full Stack</p>
-                  <Link className="text-primary nav-link3" style={{ textDecoration: "none", fontWeight: "500" }} to="/">
-                    Mostra dettagli
-                  </Link>
-                </Col>
+                    <p className="mb-0">Ruoli di Sviluppatore Full Stack</p>
+                    <Link
+                      className="text-primary nav-link3"
+                      style={{ textDecoration: "none", fontWeight: "500" }}
+                      to="/"
+                    >
+                      Mostra dettagli
+                    </Link>
+                  </Col>
 
-                <Col
-                  className="mt-4 p-3 border border-1 d-none d-sm-inline-block"
-                  style={{
-                    width: "150px",
-                    backgroundColor: "transparent",
-                    borderRadius: "20px",
-                  }}
-                >
-                  <div className="d-flex justify-content-between">
-                    <p className="mb-0" style={{ fontWeight: "500" }}>
-                      Fai sapere che stai facendo selezione
-                      <span style={{ fontWeight: "lighter" }}> e attrai candidati qualificati.</span>
-                    </p>
-                    <div>
-                      <X role="button" className="fs-3 align-content-top btn-info" />
+                  <Col
+                    className="mt-4 p-3 border border-1 d-none d-sm-inline-block"
+                    style={{
+                      width: "150px",
+                      backgroundColor: "transparent",
+                      borderRadius: "20px",
+                    }}
+                  >
+                    <div className="d-flex justify-content-between">
+                      <p className="mb-0" style={{ fontWeight: "500" }}>
+                        Fai sapere che stai facendo selezione
+                        <span style={{ fontWeight: "lighter" }}> e attrai candidati qualificati.</span>
+                      </p>
+                      <div>
+                        <X role="button" className="fs-3 align-content-top btn-info" />
+                      </div>
                     </div>
-                  </div>
-                  <Link className="text-primary nav-link3" style={{ fontWeight: "500", textDecoration: "none" }} to="/">
-                    Inizia
-                  </Link>
-                </Col>
-              </Row>
+                    <Link
+                      className="text-primary nav-link3"
+                      style={{ fontWeight: "500", textDecoration: "none" }}
+                      to="/"
+                    >
+                      Inizia
+                    </Link>
+                  </Col>
+                </Row>
+              )}
             </Container>
           </Container>
           <Resources />

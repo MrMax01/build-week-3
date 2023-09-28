@@ -134,10 +134,10 @@ const MyNavbar = () => {
                       variant="outline-primary"
                       className="w-100 rounded-pill"
                       onClick={() => {
-                        navigation("/me");
+                        navigation("/profile/me");
                       }}
                     >
-                      Visualizza Profil
+                      Visualizza Profilo
                     </Button>
                   </NavDropdown.Item>
                   <NavDropdown.Divider />

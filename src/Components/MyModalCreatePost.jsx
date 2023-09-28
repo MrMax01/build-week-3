@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const MyModalCreatePost = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const MyModalCreatePost = () => {
   const [end, setEnd] = useState("");
   const [description, setDescription] = useState("");
   const [city, setCity] = useState("");
+  const { profileId } = useParams();
   const handleChangeRole = (e) => {
     setRole(e.target.value);
   };
@@ -77,9 +79,12 @@ const MyModalCreatePost = () => {
 
   return (
     <>
-      <Button className="btn-experience" onClick={handleShow}>
-        Create an Experience
-      </Button>
+      {profileId === "me" && (
+        <Button className="btn-experience" onClick={handleShow}>
+          Create an Experience
+        </Button>
+      )}
+
       <Modal show={show} onHide={handleClose} className="mt-3">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Modal.Header closeButton>
