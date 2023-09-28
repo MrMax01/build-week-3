@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
-import { useDispatch } from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const MyModalCreatePost = () => {
@@ -15,6 +16,7 @@ const MyModalCreatePost = () => {
   const [description, setDescription] = useState("");
   const [city, setCity] = useState("");
   const { profileId } = useParams();
+  const idProfile = useSelector((state) => state.profile.content);
   const handleChangeRole = (e) => {
     setRole(e.target.value);
   };
@@ -49,7 +51,7 @@ const MyModalCreatePost = () => {
 
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/651141923752a80014568769/experiences/",
+        "https://striveschool-api.herokuapp.com/api/profile/ " + idProfile._id + "/experiences/",
         {
           method: "POST",
           body: JSON.stringify({
@@ -104,12 +106,12 @@ const MyModalCreatePost = () => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="validationCustom03">
               <Form.Label>Start</Form.Label>
-              <Form.Control type="text" onChange={handleChangeStart} />
+              <Form.Control type="date" onChange={handleChangeStart} />
               <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3" controlId="validationCustom04">
               <Form.Label>End</Form.Label>
-              <Form.Control as="textarea" onChange={handleChangeEnd} />
+              <Form.Control type="date" onChange={handleChangeEnd} />
               <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3" controlId="validationCustom05">

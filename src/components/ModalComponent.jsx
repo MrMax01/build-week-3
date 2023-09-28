@@ -14,8 +14,9 @@ const ModalComponent = ({ experience }) => {
   const idProfile = useSelector((state) => state.profile.content);
   const [role, setRole] = useState("");
   const [company, setCompany] = useState("");
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
+  const [id, setID] = useState("");
+  const [start, setStart] = useState(new Date());
+  const [end, setEnd] = useState(new Date());
   const [description, setDescription] = useState("");
   const [city, setCity] = useState("");
   const handleChangeRole = (e) => {
@@ -44,27 +45,25 @@ const ModalComponent = ({ experience }) => {
     setShow(true);
     setCity(experience.area);
     setRole(experience.role);
-    setEnd(experience.endDate);
     setStart(experience.startDate);
     setCompany(experience.company);
     setDescription(experience.description);
+    setID(experience._id);
   };
 
   // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-  const handleSubmit = async (event, experienceID) => {
+  const handleSubmit = async (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
     setValidated(true);
-    // if (end === "") {
-    //   Alert("Inserisci una data di inizio corretta ex:2022-06-20");
-    // }
+
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" + idProfile._id + "/experiences/" + experienceID,
+        "https://striveschool-api.herokuapp.com/api/profile/" + idProfile._id + "/experiences/" + id,
         {
           method: "PUT",
           body: JSON.stringify({
@@ -143,9 +142,11 @@ const ModalComponent = ({ experience }) => {
     <>
       {experience ? (
         <>
-          <Button onClick={handleShowPUT}>
-            <Pencil />
-          </Button>
+          {
+            <Button onClick={handleShowPUT}>
+              <Pencil />
+            </Button>
+          }
           <Modal show={show} onHide={handleClose} className="mt-3">
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Modal.Header closeButton>
@@ -166,16 +167,12 @@ const ModalComponent = ({ experience }) => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="validationCustom03">
                   <Form.Label>Start</Form.Label>
-                  <Form.Control
-                    type="text"
-                    onChange={handleChangeStart}
-                    defaultValue={experience.startDate.slice(0, 10)}
-                  />
+                  <Form.Control type="date" onChange={handleChangeStart} value={start} />
                   <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="validationCustom04">
                   <Form.Label>End</Form.Label>
-                  <Form.Control onChange={handleChangeEnd} defaultValue={experience.endDate.slice(0, 10)} />
+                  <Form.Control onChange={handleChangeEnd} value={end} type="date" />
                   <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="validationCustom05">
