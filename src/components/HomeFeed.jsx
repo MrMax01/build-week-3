@@ -13,13 +13,13 @@ const HomeFeed = () => {
     return (
       <Container>
         <Row className="homeFeed">
-          <Col xs={3}>
+          <Col md={4} lg={3} className="d-none d-md-inline-block">
             <ProfileSidebar />
           </Col>
-          <Col xs={6}>
+          <Col xs={12} md={8} lg={6}>
             <PostList />
           </Col>
-          <Col xs={3} className="position-relative">
+          <Col xs={12} md={12} lg={3} className="position-relative">
             <JobsFooterRight />
           </Col>
         </Row>
