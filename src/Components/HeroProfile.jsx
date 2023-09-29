@@ -22,11 +22,8 @@ function HeroProfile() {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    if (profileId) {
-      dispatch(fetchProfile(profileId));
-    } else {
-      dispatch(fetchProfile());
-    }
+    dispatch(fetchProfile(profileId));
+
     console.log(profileId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profileId]);

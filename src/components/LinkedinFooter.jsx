@@ -1,7 +1,7 @@
 import { Col, Container, Dropdown, Nav, NavDropdown, NavLink, Row } from "react-bootstrap";
 import { GearFill, QuestionCircleFill, ShieldShaded } from "react-bootstrap-icons";
 
-const LinkedInFooter = () => {
+const LinkedinFooter = () => {
   return (
     <footer className="py-3 mt-5" style={{ fontSize: "0.8rem" }}>
       <Container className="text-secondary">
@@ -191,4 +191,4 @@ const LinkedInFooter = () => {
   );
 };
 
-export default LinkedInFooter;
+export default LinkedinFooter;
