@@ -124,7 +124,7 @@ function HeroProfile() {
                   <Row className="mt-2 btn-hero">
                     {profileId === "me" ? (
                       <Col sm={12} md={12}>
-                        <Link to="/">
+                        <Link to="#">
                           <Button
                             variant="primary"
                             className="text-light border rounded-5 border border-primary d-lg-inline-block"
@@ -134,7 +134,7 @@ function HeroProfile() {
                           </Button>
                         </Link>
 
-                        <Link to="/">
+                        <Link to="#">
                           <Button
                             className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz d-none  d-lg-inline-block"
                             style={{ fontWeight: "500" }}
@@ -149,7 +149,7 @@ function HeroProfile() {
                           </Button>
                         </Link>
 
-                        <Link to="/">
+                        <Link to="#">
                           <Button
                             className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2 d-none d-lg-inline-block"
                             style={{ fontWeight: "500" }}
@@ -191,7 +191,7 @@ function HeroProfile() {
                           </Button>
                         )}
 
-                        <Link to="/">
+                        <Link to="#">
                           <Button
                             className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz d-lg-inline-block"
                             style={{ fontWeight: "500" }}
@@ -201,7 +201,7 @@ function HeroProfile() {
                           </Button>
                         </Link>
 
-                        <Link to="/">
+                        <Link to="#">
                           <Button
                             className="bg-light border rounded-5 text-secondary border border-dark btnQuiz2 d-none d-lg-inline-block"
                             style={{ fontWeight: "500" }}
@@ -268,7 +268,7 @@ function HeroProfile() {
                     <Link
                       className="text-primary nav-link3"
                       style={{ fontWeight: "500", textDecoration: "none" }}
-                      to="/"
+                      to="#"
                     >
                       Inizia
                     </Link>

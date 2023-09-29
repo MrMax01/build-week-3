@@ -20,7 +20,13 @@ const RetePage = () => {
       <Row>
         <Col xs={2}>
           <Link to="/mynetwork/myfollows">
-            <Button variant="outline-secondary">Vai ai seguiti</Button>
+            <Button
+              variant="outline-secondary position-sticky 
+            "
+              style={{ top: "70px" }}
+            >
+              Vai ai seguiti
+            </Button>
           </Link>
         </Col>
         <Col xs={10}>
@@ -32,7 +38,7 @@ const RetePage = () => {
                     <div className="d-flex justify-content-center">
                       <Card.Img
                         alt="profile-img"
-                        style={{ width: "50%", height: "120px" }}
+                        style={{ width: "120px", height: "120px" }}
                         src={persona.image}
                         className="rounded-circle "
                       />
