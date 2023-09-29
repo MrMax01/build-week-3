@@ -19,9 +19,10 @@ const RetePage = () => {
   return (
     <Container className="pt-3">
       <Row>
-        <Col xs={2}>
+        <Col xs={12} md={2}>
           <Link to="/mynetwork/myfollows">
             <Button
+              className="mb-3"
               variant="outline-secondary position-sticky 
             "
               style={{ top: "70px" }}
