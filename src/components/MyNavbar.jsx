@@ -14,7 +14,7 @@ import {
 import logo from "../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchMyProfile } from "../redux/actions";
+import { SEARCH_QUERY, fetchMyProfile, getQuery, searchJobs } from "../redux/actions";
 import { Link, useNavigate } from "react-router-dom";
 import ProfileImgLoader from "./loaders/ProfileImgLoader";
 
@@ -24,11 +24,22 @@ const MyNavbar = () => {
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   const myProfile = useSelector((state) => state.myProfile.myContent);
+  const searchQuery = useSelector((state) => state.jobs.searchQuery);
   const navigation = useNavigate();
   useEffect(() => {
     dispatch(fetchMyProfile());
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleOnSubmit = () => {
+    dispatch(searchJobs());
+  };
+
+  const handleOnChange = (ev) => {
+    dispatch(getQuery(ev.target.value));
+    console.log(ev.target.value);
+  };
 
   return (
     <Container fluid className="navbarContainer border-bottom">
@@ -41,12 +52,19 @@ const MyNavbar = () => {
           <img alt="logo" src={logo} height={41} />
         </Navbar.Brand>
 
-        <Form>
+        <Form onSubmit={handleOnSubmit}>
           <InputGroup>
             <InputGroup.Text id="search">
               <i className="bi bi-search"></i>
             </InputGroup.Text>
-            <Form.Control placeholder="Search" aria-label="Search" aria-describedby="search" />
+            <Form.Control
+              type="text"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="search"
+              value={searchQuery}
+              onChange={handleOnChange}
+            />
           </InputGroup>
         </Form>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

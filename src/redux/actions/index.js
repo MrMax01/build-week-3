@@ -7,6 +7,7 @@ export const GET_EXPERIENCE = "GET_EXPERIENCE";
 export const POST_PICTURE = "POST_PICTURE";
 export const UPDATED = "UPDATED";
 export const GET_EXPERIENCE_SELECTED = "GET_EXPERIENCE_SELECTED";
+export const SEARCH_QUERY = "SEARCH_QUERY";
 
 const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/";
 
@@ -183,4 +184,26 @@ export const pictureForPostsAction = (data, postId) => {
       console.log(error);
     }
   };
+};
+
+export const searchJobs = (jobs) => {
+  return async (dispatch) => {
+    try {
+      const resp = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?search=", {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
+        },
+      });
+      if (resp.ok) {
+        let fetchedJobs = await resp.json();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getQuery = (queryJobs) => {
+  return { type: SEARCH_QUERY, payload: queryJobs };
 };
