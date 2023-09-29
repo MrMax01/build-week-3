@@ -4,8 +4,10 @@ import ModalComponent from "./ModalComponent";
 import { useRef, useState } from "react";
 import { GET_EXPERIENCE_SELECTED, postPictureExperienceAction } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const ModaleExperienceIMG = ({ experience }) => {
+  const params = useParams().profileId;
   const [imgSrc, setImgSrc] = useState(experience.image);
   const previewImg = (event) => {
     console.log(event);
@@ -80,9 +82,7 @@ const ModaleExperienceIMG = ({ experience }) => {
               keyboard={true}
               className="addPhoto"
             >
-              <Modal.Header closeButton>
-                <Modal.Title>Add Photo</Modal.Title>
-              </Modal.Header>
+              <Modal.Header closeButton>{params === "me" && <Modal.Title>Add Photo</Modal.Title>}</Modal.Header>
               <Modal.Body className="d-flex align-content-center">
                 <Image src={imgSrc} alt="profile-picture" roundedCircle className="modalProfile" />
               </Modal.Body>
@@ -95,8 +95,12 @@ const ModaleExperienceIMG = ({ experience }) => {
                     ref={inputExperience}
                     name="experience"
                   />
-                  <Button onClick={handleClick}>Add Photo</Button>
-                  <Button type="submit">Submit</Button>
+                  {params === "me" && (
+                    <>
+                      <Button onClick={handleClick}>Add Photo</Button>
+                      <Button type="submit">Submit</Button>
+                    </>
+                  )}
                 </Form>
               </Modal.Footer>
             </Modal>

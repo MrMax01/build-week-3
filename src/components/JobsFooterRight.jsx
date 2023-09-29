@@ -2,37 +2,7 @@ import { Container, Dropdown, ListGroup } from "react-bootstrap";
 
 const JobsFooterRight = () => {
   return (
-    <Container style={{ fontSize: "0.8rem" }}>
-      {/* <Row className="text-center">
-        <Row className="justify-content-center">
-          <Col xs={4}>
-            <NavLink>Informazioni</NavLink>
-          </Col>
-          <Col xs={4}>
-            <NavLink>Accessibilità</NavLink>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={6} className="p-0">
-            <NavLink className="w-100">Centro assistenza</NavLink>
-          </Col>
-          <Col xs={6} className="p-0">
-            <NavLink className="w-100">Privacy e condizioni</NavLink>
-          </Col>
-        </Row>
-
-        <Col xs={12} className="d-flex">
-          <NavLink>Opzioni per gli annunci pubblicitari</NavLink>
-        </Col>
-        <Col xs={12} className="d-flex">
-          <NavLink>Pubblicità</NavLink>
-          <NavLink>Servizi alle aziende</NavLink>
-        </Col>
-        <Col xs={12} className="d-flex">
-          <NavLink>Scarica l'app LinkedIn</NavLink>
-          <NavLink>Altro</NavLink>
-        </Col>
-      </Row> */}
+    <Container style={{ fontSize: "0.8rem", top: "70px", zIndex: "0" }} className="sticky-top">
       <ListGroup className="text-center fs-7">
         <div className="d-flex justify-content-center">
           <ListGroup.Item className="border-0 p-2" style={{ backgroundColor: "#F4F2EE" }}>

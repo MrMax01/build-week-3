@@ -9,6 +9,15 @@ export const UPDATED = "UPDATED";
 export const GET_EXPERIENCE_SELECTED = "GET_EXPERIENCE_SELECTED";
 export const ADD_FOLLOW = "ADD_FOLLOW";
 export const DELETE_FOLLOW = "DELETE_FOLLOW";
+export const SEARCH_QUERY = "SEARCH_QUERY";
+export const GET_JOBS = "GET_JOBS";
+export const ADD_TO_FAVORITES_JOBS = "ADD_TO_FAVORITES_JOBS";
+export const REMOVE_FROM_FAVORITES_JOBS = "REMOVE_FROM_FAVORITES_JOBS";
+export const addToFavoritesAction = (companySelected) => ({ type: ADD_TO_FAVORITES_JOBS, payload: companySelected });
+export const removeFromFavoritesAction = (companySelected) => ({
+  type: REMOVE_FROM_FAVORITES_JOBS,
+  payload: companySelected,
+});
 
 const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/";
 
@@ -189,3 +198,23 @@ export const pictureForPostsAction = (data, postId) => {
 
 export const addFollow = (personObj) => ({ type: ADD_FOLLOW, payload: personObj });
 export const deleteFollow = (i) => ({ type: DELETE_FOLLOW, payload: i });
+export const getJobs = () => {
+  return async (dispatch, getState) => {
+    try {
+      const resp = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?search=" + getState().query.content, {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
+        },
+      });
+      if (resp.ok) {
+        let fetchedJobs = await resp.json();
+        dispatch({ type: GET_JOBS, payload: fetchedJobs.data });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getQuery = (queryJobs) => ({ type: SEARCH_QUERY, payload: queryJobs });

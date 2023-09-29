@@ -19,7 +19,7 @@ const HomeFeed = () => {
           <Col xs={6}>
             <PostList />
           </Col>
-          <Col xs={3}>
+          <Col xs={3} className="position-relative">
             <JobsFooterRight />
           </Col>
         </Row>
