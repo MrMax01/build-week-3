@@ -16,7 +16,7 @@ const RetePage = () => {
   }, []);
 
   return (
-    <Container>
+    <Container className="pt-3">
       <Row>
         <Col xs={2}>
           <Link to="/">
@@ -28,13 +28,13 @@ const RetePage = () => {
             {arrayPersone ? (
               arrayPersone.map((persona) => (
                 <Col key={persona._id} className="text-center mb-3">
-                  <Card>
+                  <Card className="p-2">
                     <div className="d-flex justify-content-center">
                       <Card.Img
                         alt="profile-img"
                         style={{ width: "50%", height: "120px" }}
                         src={persona.image}
-                        className="rounded-circle mt-2"
+                        className="rounded-circle "
                       />
                     </div>
                     <Card.Body>
