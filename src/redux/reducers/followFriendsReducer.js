@@ -3,6 +3,7 @@ import { ADD_FOLLOW, DELETE_FOLLOW } from "../actions";
 const initialState = {
   content: [],
 };
+
 const followFriendsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FOLLOW:
@@ -10,6 +11,7 @@ const followFriendsReducer = (state = initialState, action) => {
         ...state,
         content: [...state.content, action.payload],
       };
+
     case DELETE_FOLLOW:
       return {
         ...state,

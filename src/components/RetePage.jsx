@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 const RetePage = () => {
   const dispatch = useDispatch();
-  let arrayPersone = useSelector((state) => state.aside.content);
-  let favoritesPersons = useSelector((state) => state.follow.content);
+  const arrayPersone = useSelector((state) => state.aside.content);
+  const favoritesPersons = useSelector((state) => state.follow.content);
   console.log(favoritesPersons);
 
   useEffect(() => {
@@ -24,13 +24,18 @@ const RetePage = () => {
           </Link>
         </Col>
         <Col xs={10}>
-          <Row xs={4}>
+          <Row xs={1} sm={2} md={2} lg={3} xl={4}>
             {arrayPersone ? (
               arrayPersone.map((persona) => (
                 <Col key={persona._id} className="text-center mb-3">
                   <Card>
-                    <div style={{ width: "50%" }}>
-                      <Card.Img alt="profile-img" src={persona.image} className="rounded-circle mx-auto" />
+                    <div className="d-flex justify-content-center">
+                      <Card.Img
+                        alt="profile-img"
+                        style={{ width: "50%", height: "120px" }}
+                        src={persona.image}
+                        className="rounded-circle mt-2"
+                      />
                     </div>
                     <Card.Body>
                       <Card.Title>
@@ -45,7 +50,7 @@ const RetePage = () => {
                             dispatch(deleteFollow(persona));
                           }}
                         >
-                          <i className="bi bi-person-plus-fill"></i>Don't follow
+                          <i class="bi bi-person-dash-fill"></i> Don't follow
                         </Button>
                       ) : (
                         <Button
@@ -54,7 +59,7 @@ const RetePage = () => {
                             dispatch(addFollow(persona));
                           }}
                         >
-                          <i className="bi bi-person-plus-fill"></i>Collegati
+                          <i className="bi bi-person-plus-fill"></i> Collegati
                         </Button>
                       )}
                     </Card.Body>

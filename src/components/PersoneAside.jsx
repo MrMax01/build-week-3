@@ -1,8 +1,11 @@
 import { Button } from "react-bootstrap";
-import { PersonPlus } from "react-bootstrap-icons";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addFollow, deleteFollow } from "../redux/actions";
 
 const PersoneAside = ({ arrayPersone }) => {
+  const favoritesPersons = useSelector((state) => state.follow.content);
+  const dispatch = useDispatch();
   return (
     <>
       {arrayPersone &&
@@ -32,9 +35,26 @@ const PersoneAside = ({ arrayPersone }) => {
                 </Link>
                 <p className="my-1">{arraySingolopersone.title}</p>
                 <div>
-                  <Button className="w-75 py-1 rounded-5 border border-dark bottoneSelezionabile bg-white text-secondary">
-                    <PersonPlus /> <span style={{ fontSize: "16px", fontWeight: "500" }}>Collegati</span>
-                  </Button>
+                  {favoritesPersons.length > 0 &&
+                  favoritesPersons.some((element) => element._id === arraySingolopersone._id) ? (
+                    <Button
+                      className="w-75 py-1 rounded-5 border border-dark bottoneSelezionabile bg-danger text-white"
+                      onClick={() => {
+                        dispatch(deleteFollow(arraySingolopersone));
+                      }}
+                    >
+                      <i className="bi bi-person-dash-fill"></i> Don't follow
+                    </Button>
+                  ) : (
+                    <Button
+                      className="w-75 py-1 rounded-5 border border-dark bottoneSelezionabile bg-white text-secondary"
+                      onClick={() => {
+                        dispatch(addFollow(arraySingolopersone));
+                      }}
+                    >
+                      <i className="bi bi-person-plus-fill"></i> Collegati
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
