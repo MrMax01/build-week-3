@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import HeroProfile from "./HeroProfile";
 import MySideBar from "./MySideBar";
+import LinkedinFooter from "./LinkedinFooter";
 
 const Main = () => {
   return (
@@ -13,6 +14,7 @@ const Main = () => {
           <MySideBar />
         </Col>
       </Row>
+      <LinkedinFooter />
     </Container>
   );
 };

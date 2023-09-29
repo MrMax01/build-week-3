@@ -13,14 +13,10 @@ const MyExperience = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
+    console.log("entra ub myExperience");
     dispatch(getExperience());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [idProfile]);
-
-  useEffect(() => {
-    dispatch(getExperience());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updatedState]);
+  }, [idProfile, updatedState]);
 
   return (
     <Container className="mt-2 px-0">
@@ -37,7 +33,7 @@ const MyExperience = () => {
             arrayExperience.map((experience) => <ModaleExperienceIMG key={experience._id} experience={experience} />)}
         </ListGroup>
         <Card.Footer className="text-center fw-bold text-secondary bg-white">
-          {/* Mostra tutte le Experience{`${}`}<i className="bi bi-arrow-right"></i> */}
+          {/* Mostra tutte le Experience{${}}<i className="bi bi-arrow-right"></i> */}
         </Card.Footer>
       </Card>
     </Container>
