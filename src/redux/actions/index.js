@@ -7,6 +7,8 @@ export const GET_EXPERIENCE = "GET_EXPERIENCE";
 export const POST_PICTURE = "POST_PICTURE";
 export const UPDATED = "UPDATED";
 export const GET_EXPERIENCE_SELECTED = "GET_EXPERIENCE_SELECTED";
+export const ADD_FOLLOW = "ADD_FOLLOW";
+export const DELETE_FOLLOW = "DELETE_FOLLOW";
 
 const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/";
 
@@ -184,3 +186,6 @@ export const pictureForPostsAction = (data, postId) => {
     }
   };
 };
+
+export const addFollow = (personObj) => ({ type: ADD_FOLLOW, payload: personObj });
+export const deleteFollow = (i) => ({ type: DELETE_FOLLOW, payload: i });
