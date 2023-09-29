@@ -35,7 +35,7 @@ const MySideBar = () => {
                 </div>
               </div>
               <p className="pt-1 opacity-75" style={{ fontSize: "13px" }}>
-                www.linkedin.com/in/alaa-elmeleh-b20b0a292
+                www.linkedin.com/in/bilgen-b20b0a292
               </p>
             </div>
           </div>
