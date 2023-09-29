@@ -92,12 +92,11 @@ const ModalComponent = ({ experience }) => {
 
   const { profileId } = useParams();
 
-  const profile = useSelector((state) => state.profile.content);
   const myProfile = useSelector((state) => state.myProfile.myContent);
 
-  const [name, setName] = useState(profile.name);
-  const [surname, setSurname] = useState(profile.surname);
-  const [area, setArea] = useState(profile.area);
+  const [name, setName] = useState(myProfile.name);
+  const [surname, setSurname] = useState(myProfile.surname);
+  const [area, setArea] = useState(myProfile.area);
 
   useEffect(() => {
     if (profileId) {

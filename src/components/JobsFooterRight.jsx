@@ -17,9 +17,9 @@ const JobsFooterRight = () => {
             <span>Centro assistenza</span>
           </ListGroup.Item>
           <ListGroup.Item className="border-0 p-2 d-flex" style={{ backgroundColor: "#F4F2EE" }}>
-            <span> Privacy e condizioni</span>
             <Dropdown data-bs-theme="secondary" drop="left">
-              <Dropdown.Toggle variant="" className="border-0 p-0">
+              <Dropdown.Toggle variant="" className="fs-7 border-0 p-0">
+                <span> Privacy e condizioni</span>
                 <i className="bi bi-caret-down-fill fs-7"></i>
               </Dropdown.Toggle>
 
@@ -52,9 +52,9 @@ const JobsFooterRight = () => {
             <span>Pubblicità</span>
           </ListGroup.Item>
           <ListGroup.Item className="border-0 p-2 d-flex" style={{ backgroundColor: "#F4F2EE" }}>
-            <span> Servizi alle aziende</span>
             <Dropdown data-bs-theme="secondary" drop="left">
-              <Dropdown.Toggle variant="" className="border-0 p-0">
+              <Dropdown.Toggle variant="" className="fs-7 border-0 p-0">
+                <span> Servizi alle aziende</span>
                 <i className="bi bi-caret-down-fill fs-7"></i>
               </Dropdown.Toggle>
               <Dropdown.Menu>
