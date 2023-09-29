@@ -1,4 +1,5 @@
 import { Card, Col, Container, Dropdown, ListGroup, Row } from "react-bootstrap";
+import FavoritesJobs from "./FavoritesJobs";
 
 const JobsSidebar = () => {
   return (
@@ -6,7 +7,12 @@ const JobsSidebar = () => {
       <Container className="d-none d-lg-flex pe-0">
         <ListGroup className="w-100" style={{ color: "#404040", fontWeight: "500", fontSize: "0.9rem" }}>
           <ListGroup.Item className="border-0">Le mie offerte di lavoro</ListGroup.Item>
-          <ListGroup.Item className="border-0">Preferenze</ListGroup.Item>
+          <ListGroup.Item className="border-0">
+            <h4>Preferenze</h4>
+            <div>
+              <FavoritesJobs />
+            </div>
+          </ListGroup.Item>
           <ListGroup.Item className="border-0">Valutazioni delle competenze</ListGroup.Item>
           <ListGroup.Item className="border-0">Indicazioni per chi cerca lavoro</ListGroup.Item>
           <ListGroup.Item className="border-0">impostazioni candidatura</ListGroup.Item>

@@ -2,7 +2,7 @@ import { Container, Dropdown, ListGroup } from "react-bootstrap";
 
 const JobsFooterRight = () => {
   return (
-    <Container style={{ fontSize: "0.8rem" }}>
+    <Container style={{ fontSize: "0.8rem", top: "70px", zIndex: "0" }} className="sticky-top">
       {/* <Row className="text-center">
         <Row className="justify-content-center">
           <Col xs={4}>

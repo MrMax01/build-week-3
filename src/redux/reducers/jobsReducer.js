@@ -1,14 +1,13 @@
-import { SEARCH_QUERY } from "../actions";
+import { GET_JOBS } from "../actions";
 
 const initialState = {
-  searchQuery: null,
+  content: [],
 };
-
 const jobsReducer = (state = initialState, action) => {
-  switch (action.payload) {
-    case SEARCH_QUERY:
+  switch (action.type) {
+    case GET_JOBS:
       return {
-        searchQuery: action.payload,
+        content: action.payload,
       };
     default:
       return state;

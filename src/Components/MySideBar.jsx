@@ -10,6 +10,7 @@ const MySideBar = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPersoneAside());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -77,29 +78,6 @@ const MySideBar = () => {
               </button>
             </div>
           </section>
-          {/* <section>
-       <div className="pt-4 px-4">
-         <div>
-           <div className="d-inline">
-             <img src="#" alt="ln" />
-           </div> 
-           <span className="">LEARNING</span>
-         </div>
-         <h3 style={{ fontSize: "16px", fontWeight: "400" }}>
-           <span>Aggiungi nuove competenze con questi corsi, gratuiti per 24 ore</span>
-         </h3>
-         <ul className="list-unstyled">
-           <li className="d-flex">
-             <div>
-               <img src="#" alt="" />
-             </div>
-             <div>
-               <p>essere un manager che le persone non vorranno</p>
-             </div>
-           </li>
-         </ul>
-       </div>
-     </section> */}
         </aside>
       ) : (
         <MySideBarLoader />
