@@ -12,12 +12,14 @@ const PostList = () => {
   const [postList, setPostList] = useState([]);
   const navigation = useNavigate();
   const [show, setShow] = useState(false);
-
+  const [filter, setFilter] = useState(false);
   const dispatch = useDispatch();
   const myProfile = useSelector((state) => state.myProfile.myContent);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const postText = useRef(null);
+  const favoritesPersons = useSelector((state) => state.follow.content);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -123,83 +125,184 @@ const PostList = () => {
           </Modal>
         </Col>
       </Row>
+      <Row>
+        {filter ? (
+          <Button
+            onClick={() => {
+              setFilter(false);
+            }}
+          >
+            Show All Posts
+          </Button>
+        ) : (
+          <Button
+            onClick={() => {
+              setFilter(true);
+            }}
+          >
+            Show Friends Posts
+          </Button>
+        )}
+      </Row>
       {postList.length > 0 ? (
-        postList.slice(0, 20).map((post) => {
-          return (
-            <Row key={post._id} className="my-2 ">
-              <Card style={{ width: "100%" }} className="rounded bg-light p-0">
-                <Card.Body>
-                  <Card.Title>
-                    <Row>
-                      <Col xs={2}>
-                        <img
-                          src={post.user.image}
-                          width={40}
-                          height={40}
-                          alt="profile-img"
-                          className="rounded-circle"
-                          onClick={() => {
-                            navigation(`/profile/${post.user._id}`);
-                          }}
-                        />
-                      </Col>
-                      <Col>
+        filter ? (
+          postList
+            .filter((post) => favoritesPersons.some((friend) => friend._id === post.user._id))
+            .slice(0, 20)
+            .map((post) => {
+              return (
+                <Row key={post._id} className="my-2 ">
+                  <Card style={{ width: "100%" }} className="rounded bg-light p-0">
+                    <Card.Body>
+                      <Card.Title>
                         <Row>
-                          {post.user.name} {post.user.surname}
-                        </Row>
-                        <Row className="postTitle">{post.user.title}</Row>
-                      </Col>
-                      <Col xs={1}>
-                        {myProfile.username === post.username ? (
-                          <>
-                            <Dropdown>
-                              <Dropdown.Toggle variant="none" id="dropdown-basic">
-                                <Pencil />
-                              </Dropdown.Toggle>
+                          <Col xs={2}>
+                            <img
+                              src={post.user.image}
+                              width={40}
+                              height={40}
+                              alt="profile-img"
+                              className="rounded-circle"
+                              onClick={() => {
+                                navigation(`/profile/${post.user._id}`);
+                              }}
+                            />
+                          </Col>
+                          <Col>
+                            <Row>
+                              {post.user.name} {post.user.surname}
+                            </Row>
+                            <Row className="postTitle">{post.user.title}</Row>
+                          </Col>
+                          <Col xs={1}>
+                            {myProfile.username === post.username ? (
+                              <>
+                                <Dropdown>
+                                  <Dropdown.Toggle variant="none" id="dropdown-basic">
+                                    <Pencil />
+                                  </Dropdown.Toggle>
 
-                              <Dropdown.Menu className="p-0" style={{ minWidth: "0" }}>
-                                <Dropdown.Item className="p-0">
-                                  <Button
-                                    className="bg-danger"
-                                    onClick={() => {
-                                      handleDelete(post._id);
-                                    }}
-                                  >
-                                    <Trash />
-                                  </Button>
-                                </Dropdown.Item>
-                                <div>
-                                  <PostPutModal post={post} />
-                                </div>
-                                <div>
-                                  <PostPhoto post={post} />
-                                </div>
-                              </Dropdown.Menu>
-                            </Dropdown>
-                          </>
-                        ) : (
-                          ""
-                        )}
+                                  <Dropdown.Menu className="p-0" style={{ minWidth: "0" }}>
+                                    <Dropdown.Item className="p-0">
+                                      <Button
+                                        className="bg-danger"
+                                        onClick={() => {
+                                          handleDelete(post._id);
+                                        }}
+                                      >
+                                        <Trash />
+                                      </Button>
+                                    </Dropdown.Item>
+                                    <div>
+                                      <PostPutModal post={post} />
+                                    </div>
+                                    <div>
+                                      <PostPhoto post={post} />
+                                    </div>
+                                  </Dropdown.Menu>
+                                </Dropdown>
+                              </>
+                            ) : (
+                              ""
+                            )}
+                          </Col>
+                        </Row>
+                      </Card.Title>
+                      <Card.Text>{post.text}</Card.Text>
+                    </Card.Body>
+                    {post.image ? <Card.Img variant="bottom" src={post.image} /> : ""}
+                    <Card.Footer className="fs-3">
+                      <Row>
+                        <Col>
+                          <HandThumbsUp /> <ChatLeft /> <Repeat />
+                        </Col>
+                        <Col className="text-end">
+                          <Send />
+                        </Col>
+                      </Row>
+                    </Card.Footer>
+                  </Card>
+                </Row>
+              );
+            })
+        ) : (
+          postList.slice(0, 20).map((post) => {
+            return (
+              <Row key={post._id} className="my-2 ">
+                <Card style={{ width: "100%" }} className="rounded bg-light p-0">
+                  <Card.Body>
+                    <Card.Title>
+                      <Row>
+                        <Col xs={2}>
+                          <img
+                            src={post.user.image}
+                            width={40}
+                            height={40}
+                            alt="profile-img"
+                            className="rounded-circle"
+                            onClick={() => {
+                              navigation(`/profile/${post.user._id}`);
+                            }}
+                          />
+                        </Col>
+                        <Col>
+                          <Row>
+                            {post.user.name} {post.user.surname}
+                          </Row>
+                          <Row className="postTitle">{post.user.title}</Row>
+                        </Col>
+                        <Col xs={1}>
+                          {myProfile.username === post.username ? (
+                            <>
+                              <Dropdown>
+                                <Dropdown.Toggle variant="none" id="dropdown-basic">
+                                  <Pencil />
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu className="p-0" style={{ minWidth: "0" }}>
+                                  <Dropdown.Item className="p-0">
+                                    <Button
+                                      className="bg-danger"
+                                      onClick={() => {
+                                        handleDelete(post._id);
+                                      }}
+                                    >
+                                      <Trash />
+                                    </Button>
+                                  </Dropdown.Item>
+                                  <div>
+                                    <PostPutModal post={post} />
+                                  </div>
+                                  <div>
+                                    <PostPhoto post={post} />
+                                  </div>
+                                </Dropdown.Menu>
+                              </Dropdown>
+                            </>
+                          ) : (
+                            ""
+                          )}
+                        </Col>
+                      </Row>
+                    </Card.Title>
+                    <Card.Text>{post.text}</Card.Text>
+                  </Card.Body>
+                  {post.image ? <Card.Img variant="bottom" src={post.image} /> : ""}
+                  <Card.Footer className="fs-3">
+                    <Row>
+                      <Col>
+                        <HandThumbsUp /> <ChatLeft /> <Repeat />
+                      </Col>
+                      <Col className="text-end">
+                        <Send />
                       </Col>
                     </Row>
-                  </Card.Title>
-                  <Card.Text>{post.text}</Card.Text>
-                </Card.Body>
-                {post.image ? <Card.Img variant="bottom" src={post.image} /> : ""}
-                <Card.Footer className="fs-3">
-                  <Row>
-                    <Col>
-                      <HandThumbsUp /> <ChatLeft /> <Repeat />
-                    </Col>
-                    <Col className="text-end">
-                      <Send />
-                    </Col>
-                  </Row>
-                </Card.Footer>
-              </Card>
-            </Row>
-          );
-        })
+                  </Card.Footer>
+                </Card>
+              </Row>
+            );
+          })
+        )
       ) : (
         <PostListLoader />
       )}

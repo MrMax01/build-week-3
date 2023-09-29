@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Col, Container, Form, Image, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { fetchProfile, postPictureAction } from "../redux/actions";
+import { addFollow, deleteFollow, fetchProfile, postPictureAction } from "../redux/actions";
 import Resources from "./Resources";
 import Information from "./Information";
 import ActivityHero from "./ActivityHero";
@@ -14,7 +14,7 @@ import HeroProfileLoaders from "./loaders/HeroProfileLoader";
 
 function HeroProfile() {
   const [show, setShow] = useState();
-
+  const favoritesPersons = useSelector((state) => state.follow.content);
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile.content);
   const { profileId } = useParams();
@@ -162,16 +162,30 @@ function HeroProfile() {
                       </Col>
                     ) : (
                       <Col sm={12} md={12} className="mb-3">
-                        <Link to="/">
+                        {favoritesPersons.length > 0 &&
+                        favoritesPersons.some((element) => element._id === profile._id) ? (
+                          <Button
+                            variant="danger"
+                            className="text-light border rounded-5 border border-primary d-lg-inline-block"
+                            style={{ fontWeight: "500" }}
+                            onClick={() => {
+                              dispatch(deleteFollow(profile));
+                            }}
+                          >
+                            <i class="bi bi-person-dash-fill"></i> Non Segui
+                          </Button>
+                        ) : (
                           <Button
                             variant="primary"
                             className="text-light border rounded-5 border border-primary d-lg-inline-block"
                             style={{ fontWeight: "500" }}
+                            onClick={() => {
+                              dispatch(addFollow(profile));
+                            }}
                           >
-                            <i class="bi bi-plus"></i>
-                            Segui
+                            <i className="bi bi-person-plus-fill"></i> Segui
                           </Button>
-                        </Link>
+                        )}
 
                         <Link to="/">
                           <Button

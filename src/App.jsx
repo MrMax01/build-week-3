@@ -8,6 +8,7 @@ import Main from "./components/Main";
 import HomeFeed from "./components/HomeFeed";
 import JobsPage from "./components/JobsPage";
 import RetePage from "./components/RetePage";
+import MyFollowers from "./components/MyFollowers";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/jobs" element={<JobsPage />} />
           <Route path="/profile/:profileId" element={<Main />} />
           <Route path="/mynetwork" element={<RetePage />} />
+          <Route path="/mynetwork/myfollows" element={<MyFollowers />} />
         </Routes>
       </BrowserRouter>
     </div>
