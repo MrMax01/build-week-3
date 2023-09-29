@@ -75,7 +75,7 @@ function HeroProfile() {
                           className="addPhoto"
                         >
                           <Modal.Header closeButton>
-                            <Modal.Title>Add Photo</Modal.Title>
+                            {profileId === "me" && <Modal.Title>Add Photo</Modal.Title>}
                           </Modal.Header>
                           <Modal.Body className="d-flex align-content-center">
                             <Image src={profile.image} alt="profile-picture" roundedCircle className="modalProfile" />
@@ -83,8 +83,12 @@ function HeroProfile() {
                           <Modal.Footer>
                             <Form onSubmit={handleSubmit} id="formElement">
                               <Form.Control type="file" className="d-none" ref={inputRef} name="profile" />
-                              <Button onClick={handleClick}>Add Photo</Button>
-                              <Button type="submit">Submit</Button>
+                              {profileId === "me" && (
+                                <>
+                                  <Button onClick={handleClick}>Add Photo</Button>
+                                  <Button type="submit">Submit</Button>
+                                </>
+                              )}
                             </Form>
                           </Modal.Footer>
                         </Modal>
@@ -178,7 +182,7 @@ function HeroProfile() {
                             className=" button bg-light border rounded-5 text-primary mx-2 border border-primary btnQuiz d-lg-inline-block"
                             style={{ fontWeight: "500" }}
                           >
-                            <i class="bi bi-person-fill-add"></i>
+                            <i className="bi bi-person-fill-add"></i>
                             Collegati
                           </Button>
                         </Link>
