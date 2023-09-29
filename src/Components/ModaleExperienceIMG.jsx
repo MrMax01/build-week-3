@@ -30,7 +30,7 @@ const ModaleExperienceIMG = ({ experience }) => {
       );
       if (response.ok) {
         alert("Esperienza Eliminata con successo!");
-        dispatch({ type: "UPDATED", payload: ["changed"] });
+        dispatch({ type: "UPDATED", payload: imgSrc });
       }
     } catch (error) {
       console.log(error);
@@ -63,7 +63,7 @@ const ModaleExperienceIMG = ({ experience }) => {
             <div>
               <img
                 alt=""
-                style={{ width: "100px", height: "100px", marginRight: "20px" }}
+                style={{ width: "150px", height: "100px", marginRight: "20px" }}
                 src={experience.image}
                 className="rounded-circle"
                 onClick={() => {

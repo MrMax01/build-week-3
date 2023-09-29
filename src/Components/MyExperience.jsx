@@ -32,9 +32,6 @@ const MyExperience = () => {
             idProfile &&
             arrayExperience.map((experience) => <ModaleExperienceIMG key={experience._id} experience={experience} />)}
         </ListGroup>
-        <Card.Footer className="text-center fw-bold text-secondary bg-white">
-          {/* Mostra tutte le Experience{${}}<i className="bi bi-arrow-right"></i> */}
-        </Card.Footer>
       </Card>
     </Container>
   );
