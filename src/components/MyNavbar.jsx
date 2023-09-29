@@ -65,7 +65,11 @@ const MyNavbar = () => {
                 <span className="mt-1">Home</span>
               </div>
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigation("/mynetwork");
+              }}
+            >
               <div>
                 <div>
                   <i className="bi bi-people-fill mt-2"></i>
