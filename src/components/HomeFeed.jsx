@@ -13,7 +13,7 @@ const HomeFeed = () => {
     return (
       <Container>
         <Row className="homeFeed">
-          <Col md={4} lg={3} className="d-none d-md-inline-block">
+          <Col xs={12} md={4} lg={3} className=" d-md-inline-block p-0 px-md-3">
             <ProfileSidebar />
           </Col>
           <Col xs={12} md={8} lg={6}>

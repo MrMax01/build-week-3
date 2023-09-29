@@ -44,7 +44,7 @@ const MyNavbar = () => {
 
   return (
     <Container fluid className="navbarContainer border-bottom">
-      <Navbar expand="sm" variant="light" className="py-0">
+      <Navbar variant="light" className="py-0">
         <Navbar.Brand
           onClick={() => {
             navigation("/feed");
@@ -69,10 +69,9 @@ const MyNavbar = () => {
             />
           </InputGroup>
         </Form>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav className="text-center">
+        <Navbar id="basic-navbar-nav">
+          <Nav className="text-center  justify-content-around justify-content-md-end" style={{ width: "100%" }}>
             <Nav.Link
               onClick={() => {
                 navigation("/feed");
@@ -125,6 +124,7 @@ const MyNavbar = () => {
                 <span className="mt-1">Notifiche</span>
               </div>
             </Nav.Link>
+
             <NavDropdown
               title={
                 myProfile ? (
@@ -138,7 +138,7 @@ const MyNavbar = () => {
                 )
               }
               id="dropdown"
-              className="dropNav profileDrop py-2"
+              className="dropNav  py-2"
             >
               {myProfile && (
                 <div className="dropdownSizesControl">
@@ -275,7 +275,7 @@ const MyNavbar = () => {
             </Offcanvas>
             <Nav.Link className="premium p-0 mt-3 text-start">Prova Premium gratis</Nav.Link>
           </Nav>
-        </Navbar.Collapse>
+        </Navbar>
       </Navbar>
     </Container>
   );

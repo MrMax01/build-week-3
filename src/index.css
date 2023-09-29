@@ -91,7 +91,7 @@ code {
   margin-top: 50px;
 }
 .addPhoto .modal-content {
-  width: 744px;
+  max-width: 744px;
 }
 .addPhoto .modal-content .modalProfile {
   width: 45%;
@@ -103,7 +103,7 @@ code {
   margin-top: 100px;
 }
 .postModal .modal-content {
-  width: 744px;
+  max-width: 744px;
 }
 .postModal .modal-title {
   font-size: 1.2rem;

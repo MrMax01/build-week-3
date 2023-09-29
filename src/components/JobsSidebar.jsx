@@ -1,9 +1,38 @@
-import { Card, Col, Container, Dropdown, ListGroup, Row } from "react-bootstrap";
+import { Card, Col, Container, Dropdown, Form, InputGroup, ListGroup, Row } from "react-bootstrap";
 import FavoritesJobs from "./FavoritesJobs";
+import { useDispatch, useSelector } from "react-redux";
+import { getJobs, getQuery } from "../redux/actions";
 
 const JobsSidebar = () => {
+  const dispatch = useDispatch();
+  const searchQuery = useSelector((state) => state.query.content);
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
+    dispatch(getJobs());
+  };
+  const handleOnChange = (ev) => {
+    dispatch(getQuery(ev.target.value));
+    console.log(ev.target.value);
+  };
+
   return (
     <>
+      <Form onSubmit={handleOnSubmit} className=" d-lg-none mb-3">
+        <InputGroup>
+          <InputGroup.Text id="search">
+            <i className="bi bi-search"></i>
+          </InputGroup.Text>
+          <Form.Control
+            type="text"
+            id="searchField"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="search"
+            value={searchQuery}
+            onChange={handleOnChange}
+          />
+        </InputGroup>
+      </Form>
       <Container className="d-none d-lg-flex pe-0">
         <ListGroup className="w-100" style={{ color: "#404040", fontWeight: "500", fontSize: "0.9rem" }}>
           <ListGroup.Item className="border-0">Le mie offerte di lavoro</ListGroup.Item>

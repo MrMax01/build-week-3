@@ -1,5 +1,6 @@
 import { ListGroup } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const FavoritesJobs = () => {
   const favoritesArray = useSelector((state) => state.favorites.content);
@@ -7,7 +8,9 @@ const FavoritesJobs = () => {
     <>
       <ListGroup>
         {favoritesArray.length !== 0 ? (
-          favoritesArray.map((companyFav, i) => <ListGroup.Item key={i}>{companyFav.company_name}</ListGroup.Item>)
+          favoritesArray.map((companyFav, i) => (
+            <ListGroup.Item key={i}>{<Link to={companyFav.url}>{companyFav.company_name}</Link>}</ListGroup.Item>
+          ))
         ) : (
           <div>non ci sono preferiti</div>
         )}
