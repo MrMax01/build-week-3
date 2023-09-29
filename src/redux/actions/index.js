@@ -163,3 +163,24 @@ export const updateProfile = (newProfileData) => {
     payload: newProfileData,
   };
 };
+
+export const pictureForPostsAction = (data, postId) => {
+  return async () => {
+    try {
+      const resp = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + postId, {
+        method: "POST",
+        body: data,
+
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNDE5MjM3NTJhODAwMTQ1Njg3NjkiLCJpYXQiOjE2OTU2Mjk3MTQsImV4cCI6MTY5NjgzOTMxNH0.ULDyl0vX9IK4Q1JSP2flPPtbnDMzz49Ds1s3Ubb3me0",
+        },
+      });
+      if (resp.ok) {
+        return resp.json();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

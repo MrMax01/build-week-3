@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
+import { Plus } from "react-bootstrap-icons";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -8,13 +9,14 @@ const MyModalCreatePost = () => {
   const dispatch = useDispatch();
   const [validated, setValidated] = useState(false);
   const [show, setShow] = useState(false);
-  const idProfile = useSelector((state) => state.profile.content);
   const [role, setRole] = useState("");
   const [company, setCompany] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [description, setDescription] = useState("");
   const [city, setCity] = useState("");
+  const { profileId } = useParams();
+  const idProfile = useSelector((state) => state.profile.content);
   const handleChangeRole = (e) => {
     setRole(e.target.value);
   };
@@ -78,15 +80,12 @@ const MyModalCreatePost = () => {
 
   return (
     <>
-      {idProfile._id === "651141923752a80014568769" ? (
-        <Button className="btn-experience" onClick={handleShow}>
-          Create an Experience
-        </Button>
-      ) : (
-        <Button style={{ display: "none" }} className="btn-experience" onClick={handleShow}>
-          Create an Experience
+      {profileId === "me" && (
+        <Button className="btn-experience border-white text-black" onClick={handleShow}>
+          <Plus className="fs-3" />
         </Button>
       )}
+
       <Modal show={show} onHide={handleClose} className="mt-3">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Modal.Header closeButton>
